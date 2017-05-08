@@ -506,3 +506,55 @@ INFO  2017-05-05 15:01:33,973 56138ms DefaultLogger          Info               
 INFO  2017-05-05 15:01:36,511 58676ms DefaultLogger          Info               - New request Ended: /api/permissions
 INFO  2017-05-05 15:02:24,711    73ms DefaultLogger          Info               - New request started: /api/orders
 INFO  2017-05-05 15:02:24,944   307ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 09:40:09,365    59ms DefaultLogger          Info               - New request started: /
+INFO  2017-05-08 09:40:09,618   312ms DefaultLogger          Info               - New request started: /
+INFO  2017-05-08 09:40:09,676   370ms DefaultLogger          Info               - New request Ended: /
+INFO  2017-05-08 09:40:09,703   397ms DefaultLogger          Info               - New request Ended: /
+INFO  2017-05-08 09:41:21,199 71893ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 09:41:21,815 72509ms DefaultLogger          Info               - OnOrderCreated:eabe49cb-a7d7-4897-a81d-3676af299a5e
+INFO  2017-05-08 09:41:21,877 72571ms DefaultLogger          Info               - OnCustomerDetailChanged:this customer name
+INFO  2017-05-08 09:41:21,881 72575ms DefaultLogger          Info               - OnOrderLineItemAdded:10.0
+INFO  2017-05-08 09:41:21,957 72651ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 09:43:33,433 204127ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 09:44:16,041 246735ms DefaultLogger          Info               - OnOrderCreated:6b36e418-1203-4d43-8201-2dc2b4115f5a
+INFO  2017-05-08 09:44:16,044 246738ms DefaultLogger          Info               - OnCustomerDetailChanged:this customer name
+INFO  2017-05-08 09:44:16,045 246739ms DefaultLogger          Info               - OnOrderLineItemAdded:10.0
+INFO  2017-05-08 09:44:16,077 246771ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 09:46:40,884    69ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 09:46:41,123   308ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 09:47:08,619 27804ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 09:47:08,650 27835ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 09:51:47,533    62ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 09:51:47,753   282ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 09:52:36,871    60ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 09:52:37,097   286ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 09:53:24,580    60ms DefaultLogger          Info               - New request started: /api/orders
+ERROR 2017-05-08 09:53:24,804   284ms DefaultLogger          Error              - AutoMapper.AutoMapperMappingException: Unable to create a map expression from BaseMongoDbEntity.Id (MongoDB.Bson.ObjectId) to BaseEntity.Id (System.Guid)
+Unable to create a map expression from BaseMongoDbEntity.Id (MongoDB.Bson.ObjectId) to BaseEntity.Id (System.Guid)
+   at AutoMapper.MappingEngine.CreateMemberBindings(ExpressionRequest request, TypeMap typeMap, Expression instanceParameter, IDictionary`2 typePairCount)
+   at AutoMapper.MappingEngine.CreateMapExpression(ExpressionRequest request, Expression instanceParameter, IDictionary`2 typePairCount)
+   at AutoMapper.MappingEngine.CreateMapExpression(ExpressionRequest request, IDictionary`2 typePairCount)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at AutoMapper.MappingEngine.CreateMapExpression(Type sourceType, Type destinationType, IDictionary`2 parameters, String[] membersToExpand)
+   at AutoMapper.QueryableExtensions.ProjectionExpression.To[TResult](IDictionary`2 parameters, String[] membersToExpand)
+   at App.Common.Data.BaseRepository`2.GetItems[TResult](String include) in F:\projects\TinyERP\api\Application.Common\Data\BaseRepository.cs:line 35
+   at App.Query.Impl.Order.OrderQuery.GetOrders[TEntity]() in F:\projects\TinyERP\api\App.Query.Impl\Order\OrderQuery.cs:line 37
+   at App.Api.Features.Order.OrderCommandHandler.GetOrders() in F:\projects\TinyERP\api\Application.Api\Features\Order\OrderCommandHandler.cs:line 25
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+INFO  2017-05-08 09:53:24,994   474ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 09:56:00,028    62ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 09:56:00,561   595ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 10:29:46,554    64ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 10:29:47,116   625ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-08 10:30:51,715    63ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-08 10:30:52,242   590ms DefaultLogger          Info               - New request Ended: /api/orders

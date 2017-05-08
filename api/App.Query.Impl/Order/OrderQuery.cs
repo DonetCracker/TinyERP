@@ -32,6 +32,11 @@
              this.DbSet.Add(new App.Query.Entity.Order.Order(orderId));
         }
 
+        public TEntity GetOrder<TEntity>(string id) where TEntity : IMappedFrom<Order>
+        {
+            return this.GetById<TEntity>(id);
+        }
+
         public IList<TEntity> GetOrders<TEntity>() where TEntity: IMappedFrom<Order>
         {
             return this.GetItems<TEntity>();

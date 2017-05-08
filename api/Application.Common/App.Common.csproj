@@ -132,6 +132,7 @@
     <Compile Include="Authorize\IAuthorization.cs" />
     <Compile Include="Authorize\IUserLoginAuthorization.cs" />
     <Compile Include="Authorize\UnAuthorizedException.cs" />
+    <Compile Include="Mapping\ICustomMap.cs" />
     <Compile Include="MVC\BaseApiController.cs" />
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Command\CommandHandlerController.cs" />

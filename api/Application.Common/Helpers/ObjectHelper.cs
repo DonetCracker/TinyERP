@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using AutoMapper;
     using Event;
     using Validation.Attribute;
 
@@ -16,7 +17,7 @@
 
         internal static void Invoke<TEventType>(object handler, string methodName, TEventType arg) where TEventType : IEvent
         {
-            MethodInfo method = handler.GetType().GetMethod(methodName,new Type[] { arg.GetType()});
+            MethodInfo method = handler.GetType().GetMethod(methodName, new Type[] { arg.GetType() });
             method.Invoke(handler, new object[] { arg });
         }
 
@@ -46,5 +47,12 @@
 
             return validators;
         }
+
+        //public static dynamic InvokeGenericMethod(Type type, string methodName, params Type[] args)
+        //{
+        //    MethodInfo method = type.GetMethod(methodName, BindingFlags.Static | BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.Default);
+        //    method = method.MakeGenericMethod(args);
+        //    method.Invoke(handler, new object[] { arg });
+        //}
     }
 }

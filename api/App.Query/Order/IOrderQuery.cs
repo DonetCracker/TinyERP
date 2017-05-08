@@ -11,5 +11,6 @@
         void UpdateCustomerDetail(Guid orderId, string customerName);
         void ActivateOrder(Guid orderId);
         IList<TEntity> GetOrders<TEntity>() where TEntity : IMappedFrom<App.Query.Entity.Order.Order>;
+        TEntity GetOrder<TEntity>(string id) where TEntity : IMappedFrom<App.Query.Entity.Order.Order>;
     }
 }
