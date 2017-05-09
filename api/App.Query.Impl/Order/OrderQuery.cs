@@ -10,9 +10,9 @@
     using System.Collections.Generic;
     using Common.Mapping;
 
-    public class OrderQuery: BaseQueryRepository<Order>, IOrderQuery
+    public class OrderQuery : BaseQueryRepository<Order>, IOrderQuery
     {
-        public OrderQuery():base(new MongoDbContext()){}
+        public OrderQuery() : base(new MongoDbContext()) { }
 
         public void ActivateOrder(Guid orderId)
         {
@@ -25,11 +25,15 @@
         {
             App.Query.Entity.Order.Order order = this.DbSet.AsQueryable().FirstOrDefault(item => item.OrderId == orderId);
             order.OrderLines.Add(new OrderLine(price));
+
+            order.TotalItems += 1;
+            order.TotalPrice += price;
+
             this.DbSet.Update(order);
         }
         public void CreateOrder(Guid orderId)
         {
-             this.DbSet.Add(new App.Query.Entity.Order.Order(orderId));
+            this.DbSet.Add(new App.Query.Entity.Order.Order(orderId));
         }
 
         public TEntity GetOrder<TEntity>(string id) where TEntity : IMappedFrom<Order>
@@ -37,7 +41,7 @@
             return this.GetById<TEntity>(id);
         }
 
-        public IList<TEntity> GetOrders<TEntity>() where TEntity: IMappedFrom<Order>
+        public IList<TEntity> GetOrders<TEntity>() where TEntity : IMappedFrom<Order>
         {
             return this.GetItems<TEntity>();
         }
