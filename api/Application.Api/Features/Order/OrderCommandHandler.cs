@@ -35,7 +35,7 @@
             return query.GetOrder<OrderSummary>(id);
         }
 
-        [Route("api/orders")]
+        [Route("")]
         [HttpPost()]
         [ResponseWrapper()]
         public void CreateOrder(CreateOrderRequest request)

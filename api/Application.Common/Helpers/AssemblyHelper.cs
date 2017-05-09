@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Reflection;
     using App.Common.Tasks;
+    using Mapping;
 
     public class AssemblyHelper
     {
@@ -79,16 +80,21 @@
             return types;
         }
 
-        public static IEnumerable<Type> GetAllApplicationTypes(string filePattern = "*.dll")
+        public static IEnumerable<IMappingRegistration> GetAllMappingRegistrations(string filePattern = "*.dll")
         {
-            IEnumerable<Type> types = new List<Type>();
+            IEnumerable<IMappingRegistration> types = new List<IMappingRegistration>();
             IList<string> dlls = GetApplicationDlls(filePattern);
             foreach (string assemblyName in dlls)
             {
-                var taskInFile = Assembly.Load(assemblyName).GetTypes().Where(t => !t.IsAbstract).ToList();
+                var taskInFile = Assembly.Load(assemblyName).GetTypes()
+                    .Where(type => 
+                        !type.IsAbstract && 
+                        !type.IsInterface && 
+                        type.GetInterfaces().Any(iinterface=> iinterface.IsGenericType && iinterface.GetGenericTypeDefinition()==typeof(IMappedFrom<>)))
+                    .Select(item=>new MappingRegistration(item))
+                    .ToList();
                 types = types.Union(taskInFile);
             }
-
             return types;
         }
 
