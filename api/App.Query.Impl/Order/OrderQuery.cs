@@ -21,14 +21,12 @@
             this.DbSet.Update(order);
         }
 
-        public void AddOrderLineItem(Guid orderId, decimal price)
+        public void AddOrderLineItem(Guid orderId,Guid productId,string productName,int quantity, decimal price)
         {
             App.Query.Entity.Order.Order order = this.DbSet.AsQueryable().FirstOrDefault(item => item.OrderId == orderId);
-            order.OrderLines.Add(new OrderLine(price));
-
-            order.TotalItems += 1;
-            order.TotalPrice += price;
-
+            order.OrderLines.Add(new OrderLine(productId,productName, quantity, price));
+            order.TotalItems += quantity;
+            order.TotalPrice += price*(decimal)quantity;
             this.DbSet.Update(order);
         }
         public void CreateOrder(Guid orderId)
@@ -49,7 +47,7 @@
         public void UpdateCustomerDetail(Guid orderId, string customerName)
         {
             App.Query.Entity.Order.Order order = this.DbSet.AsQueryable().FirstOrDefault(item => item.OrderId == orderId);
-            order.Customer = new OrderCustomerDetail(customerName);
+            order.Name = customerName;
             this.DbSet.Update(order);
         }
     }

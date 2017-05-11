@@ -8,7 +8,8 @@ export const IoCNames = {
     ICacheService: "ICacheService",
     IRouteService: "IRouteService",
     IPermissionService: "IPermissionService",
-    ICustomerService: "ICustomerService"
+    ICustomerService: "ICustomerService",
+    IOrderService: "IOrderService"
 };
 
 export enum IoCLifeCycle {

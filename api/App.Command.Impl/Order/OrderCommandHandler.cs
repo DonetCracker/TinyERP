@@ -32,7 +32,7 @@
             {
                 IOrderRepository repository = IoC.Container.Resolve<IOrderRepository>(uow);
                 OrderAggregate order = repository.GetById(command.OrderId.ToString(), "OrderLines");
-                order.AddOrderLineItem(command.Price);
+                order.AddOrderLineItem(command.ProductId, command.ProductName, command.Quantity, command.Price);
                 repository.Update(order);
                 uow.Commit();
                 order.PublishEvents();

@@ -20,8 +20,14 @@
         {
             foreach (App.Command.Order.OrderLine item in orderLines)
             {
-                this.AddOrderLineItem(item.Price);
+                this.AddOrderLineItem(item.ProductId, item.ProductName, item.Quantity, item.Price);
             }
+        }
+        public void AddOrderLineItem(Guid productId, string productName, int quantity, decimal price)
+        {
+            OrderLine orderLine = new OrderLine(productId, productName, quantity, price);
+            this.OrderLines.Add(orderLine);
+            this.AddEvent(new OnOrderLineItemAdded(this.Id, productId, productName, quantity, price));
         }
 
         public void Activate()
@@ -36,11 +42,6 @@
             this.AddEvent(new OnCustomerDetailChanged(this.Id, customerDetail.Name));
         }
 
-        public void AddOrderLineItem(decimal price)
-        {
-            OrderLine orderLine = new OrderLine(price);
-            this.OrderLines.Add(orderLine);
-            this.AddEvent(new OnOrderLineItemAdded(this.Id, price));
-        }
+        
     }
 }

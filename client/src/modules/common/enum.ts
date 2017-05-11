@@ -53,7 +53,8 @@ export const ModuleNames = {
     Setting: "setting",
     Common: "common",
     CustomerManagement:"customerManagement",
-    Dashboard:"dashboard"
+    Dashboard:"dashboard",
+    Order:"orderManagement"
 };
 
 export enum PageActionItemType{

@@ -198,7 +198,7 @@
     <Compile Include="Features\Common\FilesController.cs" />
     <Compile Include="Features\Inventory\CategoriesController.cs" />
     <Compile Include="Features\Inventory\UnitOfMeasurementsController.cs" />
-    <Compile Include="Features\Order\OrderCommandHandler.cs" />
+    <Compile Include="Features\Order\OrderHandler.cs" />
     <Compile Include="Features\Security\PermissionsController.cs" />
     <Compile Include="Features\Security\UserGroupsController.cs" />
     <Compile Include="Features\Security\RolesController.cs" />

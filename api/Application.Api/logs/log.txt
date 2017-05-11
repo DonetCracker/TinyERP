@@ -558,3 +558,277 @@ INFO  2017-05-08 10:29:46,554    64ms DefaultLogger          Info               
 INFO  2017-05-08 10:29:47,116   625ms DefaultLogger          Info               - New request Ended: /api/orders
 INFO  2017-05-08 10:30:51,715    63ms DefaultLogger          Info               - New request started: /api/orders
 INFO  2017-05-08 10:30:52,242   590ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-09 11:24:10,350    66ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-09 11:24:14,582  4299ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-09 11:24:18,203  7920ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-09 11:24:18,573  8290ms DefaultLogger          Info               - OnOrderCreated:9d00f996-cbeb-461a-be53-a9f0591fe71d
+INFO  2017-05-09 11:24:18,626  8343ms DefaultLogger          Info               - OnCustomerDetailChanged:this customer name
+INFO  2017-05-09 11:24:18,630  8347ms DefaultLogger          Info               - OnOrderLineItemAdded:10.0
+INFO  2017-05-09 11:24:18,658  8375ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-09 11:24:31,372 21089ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-09 11:24:31,415 21132ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:21:13,458   400ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 10:21:13,909   851ms DefaultLogger          Info               - New request started: /
+INFO  2017-05-11 10:21:13,957   899ms DefaultLogger          Info               - New request Ended: /
+INFO  2017-05-11 10:21:13,985   927ms DefaultLogger          Info               - New request Ended: /
+INFO  2017-05-11 10:21:14,325  1267ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:23:18,805 125747ms DefaultLogger          Info               - New request started: /api/permissions
+INFO  2017-05-11 10:23:18,857 125799ms DefaultLogger          Info               - New request Ended: /api/permissions
+INFO  2017-05-11 10:23:18,893 125835ms DefaultLogger          Info               - New request started: /api/permissions
+INFO  2017-05-11 10:23:30,727 137669ms DefaultLogger          Info               - New request Ended: /api/permissions
+INFO  2017-05-11 10:23:35,773 142715ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 10:23:35,805 142747ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:23:35,838 142780ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 10:23:35,867 142809ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:24:23,941 190882ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 10:24:23,973 190915ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:24:24,007 190949ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 10:24:24,035 190977ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:52:42,643    59ms DefaultLogger          Info               - New request started: /api/orders
+ERROR 2017-05-11 10:53:31,042 48458ms DefaultLogger          Error              - System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Command.Impl.Order.OrderCommandHandler.Handle(CreateOrderRequest command) in F:\projects\TinyERP\api\App.Command.Impl\Order\OrderCommandHandler.cs:line 46
+   at App.Common.Command.Handlers.InAppCommandHandlerStategy.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\Handlers\InAppCommandHandlerStategy.cs:line 15
+   at App.Common.Command.CommandHandlerController`1.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\CommandHandlerController.cs:line 15
+   at App.Api.Features.Order.OrderHandler.CreateOrder(CreateOrderRequest request) in F:\projects\TinyERP\api\Application.Api\Features\Order\OrderHandler.cs:line 43
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClassc.<GetExecutor>b__6(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+INFO  2017-05-11 10:53:31,135 48551ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:54:00,259 77676ms DefaultLogger          Info               - New request started: /api/orders
+ERROR 2017-05-11 10:54:34,831 112247ms DefaultLogger          Error              - System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Command.Impl.Order.OrderCommandHandler.Handle(CreateOrderRequest command) in F:\projects\TinyERP\api\App.Command.Impl\Order\OrderCommandHandler.cs:line 46
+   at App.Common.Command.Handlers.InAppCommandHandlerStategy.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\Handlers\InAppCommandHandlerStategy.cs:line 15
+   at App.Common.Command.CommandHandlerController`1.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\CommandHandlerController.cs:line 15
+   at App.Api.Features.Order.OrderHandler.CreateOrder(CreateOrderRequest request) in F:\projects\TinyERP\api\Application.Api\Features\Order\OrderHandler.cs:line 43
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClassc.<GetExecutor>b__6(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+INFO  2017-05-11 10:54:34,874 112290ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:54:39,395 116811ms DefaultLogger          Info               - New request started: /api/orders
+ERROR 2017-05-11 10:57:46,264 303680ms DefaultLogger          Error              - System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Command.Impl.Order.OrderCommandHandler.Handle(CreateOrderRequest command) in F:\projects\TinyERP\api\App.Command.Impl\Order\OrderCommandHandler.cs:line 46
+   at App.Common.Command.Handlers.InAppCommandHandlerStategy.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\Handlers\InAppCommandHandlerStategy.cs:line 15
+   at App.Common.Command.CommandHandlerController`1.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\CommandHandlerController.cs:line 15
+   at App.Api.Features.Order.OrderHandler.CreateOrder(CreateOrderRequest request) in F:\projects\TinyERP\api\Application.Api\Features\Order\OrderHandler.cs:line 43
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClassc.<GetExecutor>b__6(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+INFO  2017-05-11 10:57:46,304 303720ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:57:58,734 316151ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 10:57:58,794 316210ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:58:14,935 332351ms DefaultLogger          Info               - New request started: /api/orders
+ERROR 2017-05-11 10:58:34,396 351812ms DefaultLogger          Error              - System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Command.Impl.Order.OrderCommandHandler.Handle(CreateOrderRequest command) in F:\projects\TinyERP\api\App.Command.Impl\Order\OrderCommandHandler.cs:line 46
+   at App.Common.Command.Handlers.InAppCommandHandlerStategy.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\Handlers\InAppCommandHandlerStategy.cs:line 15
+   at App.Common.Command.CommandHandlerController`1.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\CommandHandlerController.cs:line 15
+   at App.Api.Features.Order.OrderHandler.CreateOrder(CreateOrderRequest request) in F:\projects\TinyERP\api\Application.Api\Features\Order\OrderHandler.cs:line 43
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClassc.<GetExecutor>b__6(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+INFO  2017-05-11 10:58:34,443 351859ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:58:43,729 361145ms DefaultLogger          Info               - New request started: /api/orders
+ERROR 2017-05-11 10:58:53,953 371369ms DefaultLogger          Error              - System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Aggregate.Order.OrderAggregate.AddOrderLineItems(IList`1 orderLines) in F:\projects\TinyERP\api\App.Aggregate\Order\OrderAggregate.cs:line 21
+   at App.Command.Impl.Order.OrderCommandHandler.Handle(CreateOrderRequest command) in F:\projects\TinyERP\api\App.Command.Impl\Order\OrderCommandHandler.cs:line 47
+   at App.Common.Command.Handlers.InAppCommandHandlerStategy.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\Handlers\InAppCommandHandlerStategy.cs:line 15
+   at App.Common.Command.CommandHandlerController`1.Execute[TCommand](TCommand command) in F:\projects\TinyERP\api\Application.Common\Command\CommandHandlerController.cs:line 15
+   at App.Api.Features.Order.OrderHandler.CreateOrder(CreateOrderRequest request) in F:\projects\TinyERP\api\Application.Api\Features\Order\OrderHandler.cs:line 43
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClassc.<GetExecutor>b__6(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+INFO  2017-05-11 10:58:53,994 371410ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 10:59:15,960 393376ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 10:59:24,372 401788ms DefaultLogger          Info               - OnOrderCreated:cf51f36d-6d8e-4e56-908d-4355a9250a87
+INFO  2017-05-11 10:59:24,432 401848ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 10:59:24,436 401852ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 10:59:24,470 401886ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:00:02,560 439976ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:00:16,992 454408ms DefaultLogger          Info               - OnOrderCreated:ab2b4a33-76bd-4994-b232-d21027e9c6c3
+INFO  2017-05-11 11:00:16,993 454409ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:00:16,995 454411ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:00:17,027 454443ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:00:41,781 479198ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:00:50,198 487614ms DefaultLogger          Info               - OnOrderCreated:e821c1b3-f1ba-4a9b-9b0d-48a2d70f2832
+INFO  2017-05-11 11:00:50,199 487615ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:00:50,201 487617ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:00:50,232 487648ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:01:23,986 521402ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:01:31,511 528927ms DefaultLogger          Info               - OnOrderCreated:2ad41c41-549d-401f-8065-0047fbd817df
+INFO  2017-05-11 11:01:31,513 528929ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:01:31,515 528931ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:01:31,517 528933ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:01:31,574 528991ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:01:52,992 550408ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:02:00,688 558104ms DefaultLogger          Info               - OnOrderCreated:efdc8922-f819-4b5f-a4ba-94da4cbed7cb
+INFO  2017-05-11 11:02:00,689 558106ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:02:00,691 558107ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:02:00,692 558109ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:02:00,720 558137ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:02:15,893 573309ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:02:19,842 577258ms DefaultLogger          Info               - OnOrderCreated:cd72207d-1e55-4579-a7c1-4c99d4124560
+INFO  2017-05-11 11:02:19,843 577260ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:02:19,844 577261ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:02:19,846 577262ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:02:19,888 577304ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:04:44,803    68ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:04:45,522   787ms DefaultLogger          Info               - OnOrderCreated:7fe923e8-7bf8-45ab-b262-5e07063dbd69
+INFO  2017-05-11 11:04:45,588   853ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:04:45,591   856ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:04:45,593   858ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:04:45,673   938ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:05:05,966 21231ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:05:06,012 21277ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:05:06,047 21312ms DefaultLogger          Info               - New request started: /api/orders
+ERROR 2017-05-11 11:05:15,058 30323ms DefaultLogger          Error              - System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Order )
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at App.Common.Data.BaseRepository`2.GetItems[TResult](String include) in F:\projects\TinyERP\api\Application.Common\Data\BaseRepository.cs:line 35
+   at App.Query.Impl.Order.OrderQuery.GetOrders[TEntity]() in F:\projects\TinyERP\api\App.Query.Impl\Order\OrderQuery.cs:line 44
+   at App.Api.Features.Order.OrderHandler.GetOrders() in F:\projects\TinyERP\api\Application.Api\Features\Order\OrderHandler.cs:line 25
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+INFO  2017-05-11 11:05:15,163 30428ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:07:20,268    60ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:07:20,724   516ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:07:34,349 14141ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:07:34,391 14183ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:07:34,427 14219ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:07:34,468 14260ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:07:46,617 26409ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:07:46,649 26441ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:07:46,682 26474ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:07:46,711 26503ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:07:59,831 39623ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:07:59,874 39667ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:01,094 40886ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:01,131 40923ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:02,459 42252ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:02,492 42285ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:08,658 48451ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:08,693 48485ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:08,729 48521ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:08,770 48562ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:20,078 59871ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:20,463 60255ms DefaultLogger          Info               - OnOrderCreated:0e10f0b9-46eb-4218-bca6-7924087c968f
+INFO  2017-05-11 11:08:20,499 60291ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:08:20,503 60295ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:08:20,505 60297ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:08:20,537 60329ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:21,789 61581ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:21,857 61650ms DefaultLogger          Info               - OnOrderCreated:5ac0d622-804c-4de0-b249-a31306a53bbf
+INFO  2017-05-11 11:08:21,859 61651ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:08:21,860 61652ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:08:21,861 61653ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:08:21,889 61681ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:22,537 62330ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:22,612 62404ms DefaultLogger          Info               - OnOrderCreated:34a68805-9240-4ff7-a3c3-30e676fd8829
+INFO  2017-05-11 11:08:22,614 62406ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:08:22,615 62407ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:08:22,616 62408ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:08:22,644 62436ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:28,212 68004ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:28,248 68040ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:28,281 68073ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:28,316 68108ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:51,577 91369ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:51,603 91395ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:08:51,659 91451ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:08:51,685 91477ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:09:16,935 116727ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:09:16,992 116784ms DefaultLogger          Info               - OnOrderCreated:82266a6f-31d7-4858-815b-c25f291f0bdf
+INFO  2017-05-11 11:09:16,993 116785ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:09:16,995 116787ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:09:16,996 116788ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:09:17,025 116817ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:09:21,435 121228ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:09:21,474 121267ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:09:21,709 121502ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:09:21,751 121544ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:09:54,603 154396ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:09:54,690 154482ms DefaultLogger          Info               - OnOrderCreated:42a2fd0f-b411-4bc6-b2f1-be2f6e9c762b
+INFO  2017-05-11 11:09:54,692 154484ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:09:54,694 154486ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:09:54,696 154488ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:09:54,698 154490ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:09:54,729 154522ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:10:07,409 167201ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:10:07,440 167232ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:10:07,477 167269ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:10:07,505 167297ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:30:40,870    65ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:30:41,473   667ms DefaultLogger          Info               - OnOrderCreated:0fa88427-332b-4b33-ac72-42607deb3178
+INFO  2017-05-11 11:30:41,537   732ms DefaultLogger          Info               - OnCustomerDetailChanged:Tu Tran
+INFO  2017-05-11 11:30:41,542   736ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:30:41,544   739ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:30:41,545   740ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:30:41,639   834ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 11:36:22,797 341992ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 11:36:22,889 342084ms DefaultLogger          Info               - OnOrderCreated:4fcf2a22-44b8-4073-8608-f4f3160ef7a6
+INFO  2017-05-11 11:36:22,892 342087ms DefaultLogger          Info               - OnCustomerDetailChanged:Jonh
+INFO  2017-05-11 11:36:22,894 342089ms DefaultLogger          Info               - OnOrderLineItemAdded:99.99
+INFO  2017-05-11 11:36:22,896 342091ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:36:22,898 342093ms DefaultLogger          Info               - OnOrderLineItemAdded:1099.99
+INFO  2017-05-11 11:36:22,931 342126ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 14:36:00,047 11119242ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 14:36:00,148 11119343ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 14:36:44,962 11164157ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 14:36:45,010 11164205ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-11 14:36:45,046 11164241ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-11 14:36:45,079 11164274ms DefaultLogger          Info               - New request Ended: /api/orders

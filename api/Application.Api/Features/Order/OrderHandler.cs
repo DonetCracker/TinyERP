@@ -11,10 +11,10 @@
     using App.Common.DI;
 
     /// <summary>
-    /// See https://github.com/techcoaching/TinyERP/issues/77 to understand why CommandHandler temporary handles query action
+    /// See https://github.com/techcoaching/TinyERP/issues/77 to understand why this handles both query and command action
     /// </summary>
     [RoutePrefix("api/orders")]
-    public class OrderCommandHandler : CommandHandlerController<OrderAggregate>
+    public class OrderHandler : CommandHandlerController<OrderAggregate>
     {
         [HttpGet()]
         [Route("")]
