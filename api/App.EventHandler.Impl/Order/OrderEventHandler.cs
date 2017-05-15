@@ -2,44 +2,42 @@
 {
     using Event.Order;
     using App.EventHandler.Order;
-    using Common.Logging;
     using Common.DI;
     using Query.Order;
+    using ValueObject.Order;
 
     public class OrderEventHandler : IOrderEventHandler
     {
-        private ILogger logger;
-        public OrderEventHandler()
-        {
-            this.logger = IoC.Container.Resolve<ILogger>();
-        }
-
         public void Execute(OnOrderActivated ev)
         {
             IOrderQuery query = IoC.Container.Resolve<IOrderQuery>();
-            query.ActivateOrder(ev.OrderId);
-            this.logger.Info("OnOrderActivated:{0}", ev.OrderId);
+            App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
+            order.IsActivated = true;
+            query.Update(order);
         }
 
         public void Execute(OnOrderCreated ev)
         {
             IOrderQuery query = IoC.Container.Resolve<IOrderQuery>();
-            query.CreateOrder(ev.OrderId);
-            this.logger.Info("OnOrderCreated:{0}", ev.OrderId);
+            query.Add(new App.Query.Entity.Order.Order(ev.OrderId));
         }
 
         public void Execute(OnOrderLineItemAdded ev)
         {
             IOrderQuery query = IoC.Container.Resolve<IOrderQuery>();
-            query.AddOrderLineItem(ev.OrderId,ev.ProductId, ev.ProductName,ev.Quantity, ev.Price);
-            this.logger.Info("OnOrderLineItemAdded:{0}", ev.Price);
+            App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
+            order.OrderLines.Add(new OrderLine(ev.ProductId, ev.ProductName, ev.Quantity, ev.Price));
+            order.TotalItems += ev.Quantity;
+            order.TotalPrice += ev.Price * (decimal)ev.Quantity;
+            query.Update(order);
         }
 
         public void Execute(OnCustomerDetailChanged ev)
         {
             IOrderQuery query = IoC.Container.Resolve<IOrderQuery>();
-            query.UpdateCustomerDetail(ev.OrderId, ev.CustomerName);
-            this.logger.Info("OnCustomerDetailChanged:{0}", ev.CustomerName);
+            App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
+            order.Name = ev.CustomerName;
+            query.Update(order);
         }
     }
 }
