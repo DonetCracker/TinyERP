@@ -201,4 +201,13 @@
         High = 100,
         Critical = 1000
     }
+
+    public enum RepositoryType
+    {
+        MongoDb = 1,
+        MSSQL = 2,
+        Elastic = 4,
+        RabitMQ = 8,
+        Azure = 16
+    }
 }

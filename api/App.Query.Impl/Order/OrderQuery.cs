@@ -9,10 +9,11 @@
     using ValueObject.Order;
     using System.Collections.Generic;
     using Common.Mapping;
+    using Common;
 
     public class OrderQuery : BaseQueryRepository<Order>, IOrderQuery
     {
-        public OrderQuery() : base(new MongoDbContext()) { }
+        public OrderQuery() : base(RepositoryType.MongoDb) { }
 
         public void ActivateOrder(Guid orderId)
         {

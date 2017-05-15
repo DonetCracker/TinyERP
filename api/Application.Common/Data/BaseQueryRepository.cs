@@ -7,5 +7,7 @@
         {
             this.DbSet = context.GetDbSet<TEntity, ObjectId>();
         }
+
+        public BaseQueryRepository(RepositoryType type) : base(type){}
     }
 }
