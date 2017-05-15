@@ -1,7 +1,6 @@
 ﻿namespace App.Query.Impl.Order
 {
     using App.Common.Data;
-    using App.Common.Data.MongoDB;
     using App.Query.Order;
     using App.Query.Entity.Order;
     using System.Collections.Generic;
@@ -11,6 +10,7 @@
     using System.Linq;
     public class OrderQuery : BaseQueryRepository<Order>, IOrderQuery
     {
+        public OrderQuery(IUnitOfWork uow) : base(new DbContextOption(IOMode.Write, uow.RepositoryType, uow.Context)) { }
         public OrderQuery() : base(RepositoryType.MongoDb) { }
 
         public Order GetByOrderId(Guid orderId)

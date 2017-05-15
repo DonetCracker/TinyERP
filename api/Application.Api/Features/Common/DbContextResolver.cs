@@ -7,13 +7,13 @@
 
     public class DbContextResolver : IDbContextResolver
     {
-        public IDbContext Resolve(RepositoryType type)
+        public IDbContext Resolve(DbContextOption option)
         {
-            switch (type) {
+            switch (option.RepositoryType) {
                 case RepositoryType.MSSQL:
-                    return new AppDbContext();
+                    return new AppDbContext(option.IOMode);
                 case RepositoryType.MongoDb:
-                    return new App.Common.Data.MongoDB.MongoDbContext();
+                    return new App.Common.Data.MongoDB.MongoDbContext(option.IOMode);
                 default:
                     throw new InvalidOperationException("common.errors.unsupportedTyeOdDbContext");
             }

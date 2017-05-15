@@ -13,7 +13,7 @@
         {
             this.DbSet = context.GetDbSet<TEntity, TId>();
         }
-        public BaseRepository(RepositoryType type) : this(DbContextFactory.Create(type)) { }
+        public BaseRepository(DbContextOption option) : this(DbContextFactory.Create(option)) { }
 
         public virtual TEntity GetById(string id, string includes = "")
         {

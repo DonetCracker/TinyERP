@@ -5,39 +5,57 @@
     using Common.DI;
     using Query.Order;
     using ValueObject.Order;
+    using Common.Data;
+    using Common;
 
     public class OrderEventHandler : IOrderEventHandler
     {
         public void Execute(OnOrderActivated ev)
         {
-            IOrderQuery query = IoC.Container.Resolve<IOrderQuery>();
-            App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
-            order.IsActivated = true;
-            query.Update(order);
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MongoDb))
+            {
+                IOrderQuery query = IoC.Container.Resolve<IOrderQuery>(uow);
+                App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
+                order.IsActivated = true;
+                query.Update(order);
+                uow.Commit();
+            }
         }
 
         public void Execute(OnOrderCreated ev)
         {
-            IOrderQuery query = IoC.Container.Resolve<IOrderQuery>();
-            query.Add(new App.Query.Entity.Order.Order(ev.OrderId));
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MongoDb))
+            {
+                IOrderQuery query = IoC.Container.Resolve<IOrderQuery>(uow);
+                query.Add(new App.Query.Entity.Order.Order(ev.OrderId));
+                uow.Commit();
+            }
         }
 
         public void Execute(OnOrderLineItemAdded ev)
         {
-            IOrderQuery query = IoC.Container.Resolve<IOrderQuery>();
-            App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
-            order.OrderLines.Add(new OrderLine(ev.ProductId, ev.ProductName, ev.Quantity, ev.Price));
-            order.TotalItems += ev.Quantity;
-            order.TotalPrice += ev.Price * (decimal)ev.Quantity;
-            query.Update(order);
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MongoDb))
+            {
+                IOrderQuery query = IoC.Container.Resolve<IOrderQuery>(uow);
+                App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
+                order.OrderLines.Add(new OrderLine(ev.ProductId, ev.ProductName, ev.Quantity, ev.Price));
+                order.TotalItems += ev.Quantity;
+                order.TotalPrice += ev.Price * (decimal)ev.Quantity;
+                query.Update(order);
+                uow.Commit();
+            }
         }
 
         public void Execute(OnCustomerDetailChanged ev)
         {
-            IOrderQuery query = IoC.Container.Resolve<IOrderQuery>();
-            App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
-            order.Name = ev.CustomerName;
-            query.Update(order);
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MongoDb))
+            {
+                IOrderQuery query = IoC.Container.Resolve<IOrderQuery>(uow);
+                App.Query.Entity.Order.Order order = query.GetByOrderId(ev.OrderId);
+                order.Name = ev.CustomerName;
+                query.Update(order);
+                uow.Commit();
+            }
         }
     }
 }

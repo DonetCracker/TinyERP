@@ -2,6 +2,6 @@
 {
     public interface IDbContextResolver
     {
-        IDbContext Resolve(RepositoryType type);
+        IDbContext Resolve(DbContextOption option);
     }
 }
