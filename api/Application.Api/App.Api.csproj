@@ -70,9 +70,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
@@ -195,6 +197,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Features\Common\Bootstrap.cs" />
+    <Compile Include="Features\Common\DbContextResolver.cs" />
     <Compile Include="Features\Common\FilesController.cs" />
     <Compile Include="Features\Inventory\CategoriesController.cs" />
     <Compile Include="Features\Inventory\UnitOfMeasurementsController.cs" />
