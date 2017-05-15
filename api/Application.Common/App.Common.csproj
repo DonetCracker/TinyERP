@@ -132,6 +132,7 @@
     <Compile Include="Authorize\IAuthorization.cs" />
     <Compile Include="Authorize\IUserLoginAuthorization.cs" />
     <Compile Include="Authorize\UnAuthorizedException.cs" />
+    <Compile Include="Data\IBaseQueryRepository.cs" />
     <Compile Include="Mapping\ICustomMap.cs" />
     <Compile Include="Mapping\IMappingRegistration.cs" />
     <Compile Include="Mapping\MappingRegistration.cs" />

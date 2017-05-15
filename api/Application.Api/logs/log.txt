@@ -832,3 +832,16 @@ INFO  2017-05-11 14:36:44,962 11164157ms DefaultLogger          Info            
 INFO  2017-05-11 14:36:45,010 11164205ms DefaultLogger          Info               - New request Ended: /api/orders
 INFO  2017-05-11 14:36:45,046 11164241ms DefaultLogger          Info               - New request started: /api/orders
 INFO  2017-05-11 14:36:45,079 11164274ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-15 13:28:02,028    66ms DefaultLogger          Info               - New request started: /
+INFO  2017-05-15 13:28:02,325   362ms DefaultLogger          Info               - New request started: /
+INFO  2017-05-15 13:28:02,359   397ms DefaultLogger          Info               - New request Ended: /
+INFO  2017-05-15 13:28:02,388   426ms DefaultLogger          Info               - New request Ended: /
+INFO  2017-05-15 13:29:03,565 61603ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-15 13:31:46,785    63ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-15 13:59:47,422    68ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-15 14:05:12,110    62ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-15 15:45:55,554    56ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-15 15:47:31,268    64ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-15 15:47:38,913  7708ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-15 15:47:50,098 18893ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-15 15:47:50,222 19018ms DefaultLogger          Info               - New request Ended: /api/orders

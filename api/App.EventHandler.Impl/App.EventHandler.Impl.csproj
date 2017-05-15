@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=1.9.2.235, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,6 +60,10 @@
       <Project>{6aa214af-9650-4c32-aca2-a4b0bc625289}</Project>
       <Name>App.Event</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.Query.Entity\App.Query.Entity.csproj">
+      <Project>{e99a0615-4f5c-4150-baf6-e6a0475ef180}</Project>
+      <Name>App.Query.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Query\App.Query.csproj">
       <Project>{3ca1adb0-a50e-41e1-95eb-2ea6463931c6}</Project>
       <Name>App.Query</Name>
@@ -63,6 +71,10 @@
     <ProjectReference Include="..\App.Service\App.Service.csproj">
       <Project>{52b208eb-1196-4285-bfef-9563bb6a9147}</Project>
       <Name>App.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.ValueObject\App.ValueObject.csproj">
+      <Project>{d778351f-f028-41bd-b17c-3e38a868dd4d}</Project>
+      <Name>App.ValueObject</Name>
     </ProjectReference>
     <ProjectReference Include="..\Application.Common\App.Common.csproj">
       <Project>{fa3eaa76-30ec-41fd-b9b1-c46158b9e821}</Project>
