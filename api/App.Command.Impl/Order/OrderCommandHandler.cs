@@ -4,7 +4,6 @@
     using Aggregate.Order;
     using Common.Aggregate;
     using Common.Data;
-    using Common;
     using Repository.Order;
     using Common.DI;
     using Event.Order;

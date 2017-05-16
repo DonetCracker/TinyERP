@@ -11,7 +11,7 @@
         {
             switch (option.RepositoryType) {
                 case RepositoryType.MSSQL:
-                    return new AppDbContext(option.IOMode);
+                    return new AppDbContext(option.IOMode, connectionName: option.ConnectionStringName);
                 case RepositoryType.MongoDb:
                     return new App.Common.Data.MongoDB.MongoDbContext(option.IOMode);
                 default:

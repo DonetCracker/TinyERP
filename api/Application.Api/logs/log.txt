@@ -1115,3 +1115,5 @@ INFO  2017-05-16 11:12:31,408 241616ms DefaultLogger          Info              
 INFO  2017-05-16 11:12:31,516 241724ms DefaultLogger          Info               - New request Ended: /api/orders
 INFO  2017-05-16 11:12:32,549 242756ms DefaultLogger          Info               - New request started: /api/orders
 INFO  2017-05-16 11:12:32,654 242861ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-16 11:20:03,673    57ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 11:20:06,005  2390ms DefaultLogger          Info               - New request Ended: /api/orders

@@ -37,7 +37,7 @@
         public System.Data.Entity.DbSet<Request> Requests { get; set; }
         public System.Data.Entity.DbSet<Category> Categories { get; set; }
         public System.Data.Entity.DbSet<UnitOfMeasurement> UnitOfMeasurements { get; set; }
-        public AppDbContext(IOMode mode = IOMode.Read) : base(new App.Common.Data.MSSQL.MSSQLConnectionString(), mode)
+        public AppDbContext(IOMode mode = IOMode.Read, string connectionName = "") : base(new App.Common.Data.MSSQL.MSSQLConnectionString(connectionName), mode)
         {
             Database.SetInitializer<AppDbContext>(new DropCreateDatabaseIfModelChanges<AppDbContext>());
         }
