@@ -11,7 +11,6 @@
     using App.Common.Validation;
     using App.Service.Security.UserGroup;
     using App.Common.Helpers;
-    using App.Context;
     using System.Linq;
 
     internal class UserGroupService : IUserGroupService

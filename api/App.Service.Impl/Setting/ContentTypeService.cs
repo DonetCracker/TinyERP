@@ -7,7 +7,6 @@
     using App.Repository.Setting;
     using App.Entity.Setting;
     using App.Common.Data;
-    using App.Context;
     using App.Common;
     using App.Common.Validation;
     using App.Repository.Common;

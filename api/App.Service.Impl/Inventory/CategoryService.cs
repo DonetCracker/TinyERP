@@ -8,11 +8,10 @@
     using App.Common;
     using System;
     using App.Common.Data;
-    using Context;
     using Entity.Inventory;
     using App.Common.Helpers;
 
-    public class CategoryService : ICategoryService
+    internal class CategoryService : ICategoryService
     {
         public void CreateIfNotExist(List<CreateCategoryRequest> createCategoryRequests)
         {

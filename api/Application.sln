@@ -61,7 +61,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Query.Entity", "App.Que
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Query.Impl", "App.Query.Impl\App.Query.Impl.csproj", "{A7DCFF43-EE80-4451-832E-9AFE73AA2139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceTest", "PerformanceTest\PerformanceTest.csproj", "{3CC6CEBE-07E1-477F-8341-BD7799989258}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Api.PerformanceTest", "PerformanceTest\App.Api.PerformanceTest.csproj", "{3CC6CEBE-07E1-477F-8341-BD7799989258}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{511DF273-48C6-4E71-832C-D41FF4B7BAB6}"
 	ProjectSection(SolutionItems) = preProject

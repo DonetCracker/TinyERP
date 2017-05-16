@@ -47,12 +47,5 @@
 
             return validators;
         }
-
-        //public static dynamic InvokeGenericMethod(Type type, string methodName, params Type[] args)
-        //{
-        //    MethodInfo method = type.GetMethod(methodName, BindingFlags.Static | BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.Default);
-        //    method = method.MakeGenericMethod(args);
-        //    method.Invoke(handler, new object[] { arg });
-        //}
     }
 }

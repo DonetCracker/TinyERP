@@ -5,16 +5,16 @@
     using Common.Aggregate;
     using Common.Data;
     using Common;
-    using Context;
     using Repository.Order;
     using Common.DI;
     using Event.Order;
+    using Common.Command;
 
-    public class OrderCommandHandler : IOrderCommandHandler
+    internal class OrderCommandHandler : BaseCommandHandler, IOrderCommandHandler
     {
         public void Handle(ActivateOrder command)
         {
-            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
+            using (IUnitOfWork uow = this.CreateUnitOfWork<OrderAggregate>())
             {
                 IOrderRepository repository = IoC.Container.Resolve<IOrderRepository>(uow);
                 OrderAggregate order = repository.GetById(command.OrderId.ToString(), "OrderLines");
@@ -27,7 +27,7 @@
 
         public void Handle(AddOrderLineRequest command)
         {
-            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
+            using (IUnitOfWork uow = this.CreateUnitOfWork<OrderAggregate>())
             {
                 IOrderRepository repository = IoC.Container.Resolve<IOrderRepository>(uow);
                 OrderAggregate order = repository.GetById(command.OrderId.ToString(), "OrderLines");
@@ -44,7 +44,7 @@
             OrderAggregate order = AggregateFactory.Create<OrderAggregate>();
             order.AddCustomerDetail(command.CustomerDetail);
             order.AddOrderLineItems(command.OrderLines);
-            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
+            using (IUnitOfWork uow = this.CreateUnitOfWork<OrderAggregate>())
             {
                 IOrderRepository repository = IoC.Container.Resolve<IOrderRepository>(uow);
                 repository.Add(order);

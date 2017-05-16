@@ -132,6 +132,10 @@
     <Compile Include="Authorize\IAuthorization.cs" />
     <Compile Include="Authorize\IUserLoginAuthorization.cs" />
     <Compile Include="Authorize\UnAuthorizedException.cs" />
+    <Compile Include="Command\BaseCommandHandler.cs" />
+    <Compile Include="Configurations\Aggregate\AggregateOption.cs" />
+    <Compile Include="Configurations\Aggregate\AggregatesElement.cs" />
+    <Compile Include="Configurations\RepositoryElement.cs" />
     <Compile Include="Data\DbContextFactory.cs" />
     <Compile Include="Data\DbContextOption.cs" />
     <Compile Include="Data\IDbContextResolver.cs" />

@@ -38,6 +38,15 @@
             }
         }
 
+        [ConfigurationProperty("repository")]
+        public RepositoryElement Repository
+        {
+            get
+            {
+                return (RepositoryElement)this["repository"];
+            }
+        }
+
         [ConfigurationProperty("databases", IsDefaultCollection = false)]
         [ConfigurationCollection(typeof(DatabasesElement),
             AddItemName = "add",
@@ -120,6 +129,19 @@
             get
             {
                 return (EventHandlersElement)this["eventHandlers"];
+            }
+        }
+
+        [ConfigurationProperty("aggregates", IsDefaultCollection = false)]
+        [ConfigurationCollection(typeof(AggregatesElement),
+            AddItemName = "add",
+            ClearItemsName = "clear",
+            RemoveItemName = "remove")]
+        public AggregatesElement Aggregates
+        {
+            get
+            {
+                return (AggregatesElement)this["aggregates"];
             }
         }
     }

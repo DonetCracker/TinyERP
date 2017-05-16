@@ -8,7 +8,7 @@
     using Common.Data;
     using Common;
 
-    public class OrderEventHandler : IOrderEventHandler
+    internal class OrderEventHandler : IOrderEventHandler
     {
         public void Execute(OnOrderActivated ev)
         {

@@ -8,9 +8,9 @@
     using Common;
     using System;
     using System.Linq;
-    public class OrderQuery : BaseQueryRepository<Order>, IOrderQuery
+    internal class OrderQuery : BaseQueryRepository<Order>, IOrderQuery
     {
-        public OrderQuery(IUnitOfWork uow) : base(new DbContextOption(IOMode.Write, uow.RepositoryType, uow.Context)) { }
+        public OrderQuery(IUnitOfWork uow) : base(new DbContextOption(IOMode.Write, uow.RepositoryType, context: uow.Context)) { }
         public OrderQuery() : base(RepositoryType.MongoDb) { }
 
         public Order GetByOrderId(Guid orderId)
