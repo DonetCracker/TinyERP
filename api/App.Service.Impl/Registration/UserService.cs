@@ -23,7 +23,7 @@
         {
             if (users == null) { return; }
 
-            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IUserRepository userRepository = IoC.Container.Resolve<IUserRepository>(uow);
                 foreach (User user in users)
@@ -43,7 +43,7 @@
             AuthenticationToken token;
             User user;
             this.ValidateUserLoginRequest(request);
-            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IUserRepository userRepository = IoC.Container.Resolve<IUserRepository>(uow);
                 token = new App.Common.AuthenticationToken(Guid.NewGuid(), DateTimeHelper.GetAuthenticationTokenExpiredUtcDateTime());
@@ -89,7 +89,7 @@
 
         public void SignOut(string token)
         {
-            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IUserRepository userRepository = IoC.Container.Resolve<IUserRepository>(uow);
                 User user = userRepository.GetByToken(token);

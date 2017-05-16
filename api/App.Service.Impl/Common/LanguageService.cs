@@ -10,7 +10,7 @@
     {
         public void Add(IList<Language> languages)
         {
-            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 ILanguageRepository repository = App.Common.DI.IoC.Container.Resolve<ILanguageRepository>();
                 foreach (Language item in languages)

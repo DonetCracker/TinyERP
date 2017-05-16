@@ -6,13 +6,13 @@
     {
         public RepositoryType RepositoryType { get; protected set; }
         public IDbContext Context { get; private set; }
-        public UnitOfWork(DbContextOption option) : this(DbContextFactory.Create(option))
+        protected UnitOfWork(DbContextOption option) : this(DbContextFactory.Create(option))
         {
             this.RepositoryType = option.RepositoryType;
         }
         public UnitOfWork(RepositoryType repoType) : this(new DbContextOption(IOMode.Write,repoType)){}
         
-        public UnitOfWork(IDbContext context)
+        protected UnitOfWork(IDbContext context)
         {
             this.Context = context;
         }

@@ -19,7 +19,7 @@
         public void Create(CreateContentTypeRequest request)
         {
             this.ValidateCreateRequest(request);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IContentTypeRepository repo = IoC.Container.Resolve<IContentTypeRepository>(uow);
                 ContentType contentType = new ContentType(request.Name, request.Key, request.Description);
@@ -65,7 +65,7 @@
 
         public void CreateIfNotExist(IList<CreateContentTypeRequest> request)
         {
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IContentTypeRepository repo = IoC.Container.Resolve<IContentTypeRepository>(uow);
                 foreach (CreateContentTypeRequest item in request)
@@ -81,7 +81,7 @@
 
         public void Delete(Guid id)
         {
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IContentTypeRepository repo = IoC.Container.Resolve<IContentTypeRepository>(uow);
                 repo.Delete(id);
@@ -107,7 +107,7 @@
         public void Update(UpdateContentTypeRequest request)
         {
             this.ValidateUpdateRequest(request);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IContentTypeRepository repo = IoC.Container.Resolve<IContentTypeRepository>(uow);
                 ContentType contentType = repo.GetById(request.Id.ToString());

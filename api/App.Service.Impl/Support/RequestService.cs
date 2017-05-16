@@ -26,7 +26,7 @@
         {
             SupportRequestOnStatusChanged ev;
             this.ValidateSetRequestStatus(itemId);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IRequestRepository repo = IoC.Container.Resolve<IRequestRepository>(uow);
                 Request request = repo.GetById(itemId.ToString());
@@ -58,7 +58,7 @@
         public void CreateRequest(CreateRequest request)
         {
             this.ValidateCreateRequest(request);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IRequestRepository repo = IoC.Container.Resolve<IRequestRepository>(uow);
                 Request item = new Request(request.Subject, request.Description, request.Email);

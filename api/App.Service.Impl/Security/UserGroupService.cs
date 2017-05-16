@@ -19,7 +19,7 @@
         public CreateUserGroupResponse Create(CreateUserGroupRequest request)
         {
             this.ValidateCreateRequest(request);
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IUserGroupRepository userGroupRepository = IoC.Container.Resolve<IUserGroupRepository>(uow);
                 IPermissionRepository permissionRepo = IoC.Container.Resolve<IPermissionRepository>(uow);
@@ -54,7 +54,7 @@
         public void Delete(Guid id)
         {
             this.ValidateDeleteRequest(id);
-            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IUserGroupRepository repository = IoC.Container.Resolve<IUserGroupRepository>(uow);
                 repository.Delete(id);
@@ -94,7 +94,7 @@
         public void Update(UpdateUserGroupRequest request)
         {
             this.ValidateUpdateRequest(request);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IUserGroupRepository repository = IoC.Container.Resolve<IUserGroupRepository>(uow);
                 UserGroup existedItem = repository.GetById(request.Id.ToString(), "Permissions");

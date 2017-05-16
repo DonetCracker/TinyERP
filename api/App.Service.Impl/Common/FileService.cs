@@ -38,7 +38,7 @@
         public IList<FileUploadResponse> UploadFiles(List<MultipartFormDataMemoryStreamProvider.FileInfo> files)
         {
             this.ValidateUploadRequest(files);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IFileRepository repo = IoC.Container.Resolve<IFileRepository>(uow);
                 IList<FileUploadResponse> filesUploaded = new List<FileUploadResponse>();

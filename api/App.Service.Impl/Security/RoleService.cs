@@ -16,7 +16,7 @@
     {
         public void CreateIfNotExist(IList<Role> roles)
         {
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IRoleRepository roleRepository = IoC.Container.Resolve<IRoleRepository>(uow);
                 foreach (Role role in roles)
@@ -31,7 +31,7 @@
 
         public void Create(IList<Role> roles)
         {
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IRoleRepository roleRepository = IoC.Container.Resolve<IRoleRepository>(uow);
                 foreach (Role role in roles)
@@ -55,7 +55,7 @@
         public CreateRoleResponse Create(CreateRoleRequest request)
         {
             this.Validate(request);
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IRoleRepository roleRepository = IoC.Container.Resolve<IRoleRepository>(uow);
                 IPermissionRepository permissionRepo = IoC.Container.Resolve<IPermissionRepository>(uow);
@@ -83,7 +83,7 @@
         public DeleteRoleResponse Delete(Guid id)
         {
             this.ValidateDeleteRequest(id);
-            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IRoleRepository repository = IoC.Container.Resolve<IRoleRepository>(uow);
                 DeleteRoleResponse deleteResponse = repository.GetById<DeleteRoleResponse>(id.ToString());
@@ -124,7 +124,7 @@
         public void Update(UpdateRoleRequest request)
         {
             this.ValidateUpdateRequest(request);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IRoleRepository repository = IoC.Container.Resolve<IRoleRepository>(uow);
                 Role existedRole = repository.GetById(request.Id.ToString(), "Permissions");

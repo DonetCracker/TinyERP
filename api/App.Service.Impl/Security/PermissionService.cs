@@ -17,7 +17,7 @@
     {
         public void CreateIfNotExist(IList<CreatePermissionRequest> pers)
         {
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IPermissionRepository perRepository = IoC.Container.Resolve<IPermissionRepository>(uow);
                 foreach (CreatePermissionRequest perRequest in pers)
@@ -42,7 +42,7 @@
         public CreatePermissionResponse Create(CreatePermissionRequest permission)
         {
             this.ValidateCreatePermissionRequest(permission);
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IPermissionRepository perRepository = IoC.Container.Resolve<IPermissionRepository>(uow);
                 Permission per = new Permission(permission.Name, permission.Key, permission.Description);
@@ -79,7 +79,7 @@
         public void Delete(Guid id)
         {
             this.ValidateDeleteRequest(id);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IPermissionRepository perRepo = IoC.Container.Resolve<IPermissionRepository>(uow);
                 perRepo.Delete(id);
@@ -110,7 +110,7 @@
         public void Update(UpdatePermissionRequest request)
         {
             this.ValidateUpdateRequest(request);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IPermissionRepository perRepo = IoC.Container.Resolve<IPermissionRepository>(uow);
                 Permission existedPermission = perRepo.GetById(request.Id.ToString());

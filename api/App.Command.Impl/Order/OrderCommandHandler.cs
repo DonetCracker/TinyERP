@@ -14,8 +14,7 @@
     {
         public void Handle(ActivateOrder command)
         {
-            //using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
-            using (IUnitOfWork uow = new UnitOfWork(new DbContextOption(IOMode.Write, RepositoryType.MSSQL)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IOrderRepository repository = IoC.Container.Resolve<IOrderRepository>(uow);
                 OrderAggregate order = repository.GetById(command.OrderId.ToString(), "OrderLines");
@@ -28,7 +27,7 @@
 
         public void Handle(AddOrderLineRequest command)
         {
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IOrderRepository repository = IoC.Container.Resolve<IOrderRepository>(uow);
                 OrderAggregate order = repository.GetById(command.OrderId.ToString(), "OrderLines");
@@ -45,7 +44,7 @@
             OrderAggregate order = AggregateFactory.Create<OrderAggregate>();
             order.AddCustomerDetail(command.CustomerDetail);
             order.AddOrderLineItems(command.OrderLines);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IOrderRepository repository = IoC.Container.Resolve<IOrderRepository>(uow);
                 repository.Add(order);

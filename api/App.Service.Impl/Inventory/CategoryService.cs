@@ -16,7 +16,7 @@
     {
         public void CreateIfNotExist(List<CreateCategoryRequest> createCategoryRequests)
         {
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 ICategoryRepository categoryRepository = IoC.Container.Resolve<ICategoryRepository>(uow);
                 foreach (CreateCategoryRequest request in createCategoryRequests)
@@ -52,7 +52,7 @@
         public CreateCategoryResponse Create(CreateCategoryRequest createCategoryRequest)
         {
             this.ValiateCreateCategoryRequest(createCategoryRequest);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 ICategoryRepository categoryRepository = IoC.Container.Resolve<ICategoryRepository>(uow);
                 Category category = new Category(createCategoryRequest.Name, createCategoryRequest.Description);
@@ -78,7 +78,7 @@
         public void Update(UpdateCategoryRequest updateCategoryRequest)
         {
             this.ValiateUpdateCategoryRequest(updateCategoryRequest);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 ICategoryRepository categoryRepository = IoC.Container.Resolve<ICategoryRepository>(uow);
                 Category category = categoryRepository.GetById(updateCategoryRequest.Id.ToString());
@@ -110,7 +110,7 @@
         public void Delete(Guid id)
         {
             this.ValidateDeleteRequest(id);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 ICategoryRepository categoryRepository = IoC.Container.Resolve<ICategoryRepository>(uow);
                 categoryRepository.Delete(id);
