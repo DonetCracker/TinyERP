@@ -15,7 +15,7 @@
         {
             this.Mode = mode;
         }
-        public MongoDbContext(IOMode mode = IOMode.Read) : this(new MongoConnectionString(), mode) { }
+        public MongoDbContext(IOMode mode = IOMode.Read, string connectionName = "") : this(new MongoConnectionString(connectionName), mode) { }
         public IDbSet<TEntity, TId> GetDbSet<TEntity, TId>() where TEntity : class, IBaseEntity<TId>
         {
             IQueryable<TEntity> collection = this.GetCollection<TEntity>();

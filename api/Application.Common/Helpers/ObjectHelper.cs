@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using Data;
     using AutoMapper;
     using Event;
     using Validation.Attribute;
@@ -29,6 +30,10 @@
         internal static TEntity CreateInstance<TEntity>() where TEntity : class
         {
             return Activator.CreateInstance<TEntity>();
+        }
+        internal static object CreateInstance(Type type, object[] args)
+        {
+            return Activator.CreateInstance(type,args);
         }
 
         public static IList<ValidationRequest> GetPropertyAttributes<TValidator>(object obj) where TValidator : BaseAttribute

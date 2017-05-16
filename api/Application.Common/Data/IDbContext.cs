@@ -7,4 +7,5 @@
         void RegisterSaveChangeEvent(OnContextSaveChange ev);
         void OnSaveChanged();
     }
+    public interface IDbContext<TEntity> : IDbContext { }
 }

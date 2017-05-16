@@ -1117,3 +1117,87 @@ INFO  2017-05-16 11:12:32,549 242756ms DefaultLogger          Info              
 INFO  2017-05-16 11:12:32,654 242861ms DefaultLogger          Info               - New request Ended: /api/orders
 INFO  2017-05-16 11:20:03,673    57ms DefaultLogger          Info               - New request started: /api/orders
 INFO  2017-05-16 11:20:06,005  2390ms DefaultLogger          Info               - New request Ended: /api/orders
+ERROR 2017-05-16 14:30:03,029    71ms DefaultLogger          Error              - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate App.Repository.Impl.Setting.ContentTypeRepository ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Common.Data.BaseRepository`2..ctor(IDbContext context) in F:\projects\TinyERP\api\Application.Common\Data\BaseRepository.cs:line 14
+   at App.Common.Data.BaseCommandRepository`1..ctor(IDbContext context) in F:\projects\TinyERP\api\Application.Common\Data\BaseCommandRepository.cs:line 6
+   at App.Common.Data.BaseContentRepository`1..ctor(IMSSQLDbContext context) in F:\projects\TinyERP\api\Application.Common\Data\BaseContentRepository.cs:line 7
+   at App.Repository.Impl.Setting.ContentTypeRepository..ctor(IUnitOfWork uow) in F:\projects\TinyERP\api\App.Repository.Impl\Setting\ContentTypeRepository.cs:line 14
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve[T](Object argumentsAsAnonymousType)
+   at App.Common.DI.Castle.CastleContainer.Resolve[TInterface](IUnitOfWork unitOfWork) in F:\projects\TinyERP\api\Application.Common\DI\Castle\CastleContainer.cs:line 106
+   at App.Service.Impl.Setting.ContentTypeService.CreateIfNotExist(IList`1 request) in F:\projects\TinyERP\api\App.Service.Impl\Setting\ContentTypeService.cs:line 69
+   at App.Api.Features.Share.Tasks.CreateContentTypesTask.Execute(TaskArgument`1 context) in F:\projects\TinyERP\api\Application.Api\Features\Share\Tasks\Data\CreateContentTypesTask.cs:line 25
+   at App.Common.Helpers.AssemblyHelper.RunTasksInOrder[TaskType,ContextType](IEnumerable`1 tasks, ContextType context) in F:\projects\TinyERP\api\Application.Common\Helpers\AssemblyHelper.cs:line 58
+   at App.Common.Helpers.AssemblyHelper.ExecuteTasks[TaskType,ContextType](ContextType context, Boolean runTasksInOrder) in F:\projects\TinyERP\api\Application.Common\Helpers\AssemblyHelper.cs:line 35
+   at App.Common.Application.BaseApplication`1.OnApplicationStarted() in F:\projects\TinyERP\api\Application.Common\Application\BaseApplication.cs:line 20
+   at App.Common.Application.WebApiApplication.OnApplicationStarted() in F:\projects\TinyERP\api\Application.Common\Application\WebApiApplication.cs:line 19
+   at App.Api.WebApiApplication.Application_Start() in F:\projects\TinyERP\api\Application.Api\Global.asax.cs:line 13
+ERROR 2017-05-16 14:31:53,994    75ms DefaultLogger          Error              - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate App.Repository.Impl.Setting.ContentTypeRepository ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Common.Data.BaseRepository`2..ctor(IDbContext context) in F:\projects\TinyERP\api\Application.Common\Data\BaseRepository.cs:line 14
+   at App.Common.Data.BaseCommandRepository`1..ctor(IDbContext context) in F:\projects\TinyERP\api\Application.Common\Data\BaseCommandRepository.cs:line 6
+   at App.Common.Data.BaseContentRepository`1..ctor(IMSSQLDbContext context) in F:\projects\TinyERP\api\Application.Common\Data\BaseContentRepository.cs:line 7
+   at App.Repository.Impl.Setting.ContentTypeRepository..ctor(IUnitOfWork uow) in F:\projects\TinyERP\api\App.Repository.Impl\Setting\ContentTypeRepository.cs:line 14
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve[T](Object argumentsAsAnonymousType)
+   at App.Common.DI.Castle.CastleContainer.Resolve[TInterface](IUnitOfWork unitOfWork) in F:\projects\TinyERP\api\Application.Common\DI\Castle\CastleContainer.cs:line 106
+   at App.Service.Impl.Setting.ContentTypeService.CreateIfNotExist(IList`1 request) in F:\projects\TinyERP\api\App.Service.Impl\Setting\ContentTypeService.cs:line 69
+   at App.Api.Features.Share.Tasks.CreateContentTypesTask.Execute(TaskArgument`1 context) in F:\projects\TinyERP\api\Application.Api\Features\Share\Tasks\Data\CreateContentTypesTask.cs:line 25
+   at App.Common.Helpers.AssemblyHelper.RunTasksInOrder[TaskType,ContextType](IEnumerable`1 tasks, ContextType context) in F:\projects\TinyERP\api\Application.Common\Helpers\AssemblyHelper.cs:line 58
+   at App.Common.Helpers.AssemblyHelper.ExecuteTasks[TaskType,ContextType](ContextType context, Boolean runTasksInOrder) in F:\projects\TinyERP\api\Application.Common\Helpers\AssemblyHelper.cs:line 35
+   at App.Common.Application.BaseApplication`1.OnApplicationStarted() in F:\projects\TinyERP\api\Application.Common\Application\BaseApplication.cs:line 20
+   at App.Common.Application.WebApiApplication.OnApplicationStarted() in F:\projects\TinyERP\api\Application.Common\Application\WebApiApplication.cs:line 19
+   at App.Api.WebApiApplication.Application_Start() in F:\projects\TinyERP\api\Application.Api\Global.asax.cs:line 13
+INFO  2017-05-16 14:43:41,360    63ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 15:10:36,162    58ms DefaultLogger          Info               - New request started: /
+INFO  2017-05-16 15:10:36,241   137ms DefaultLogger          Info               - New request Ended: /
+INFO  2017-05-16 17:06:56,724    73ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:08:51,715    59ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:10:36,956    68ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:13:44,246    61ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:13:45,293  1108ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-16 17:13:56,452 12267ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:13:56,572 12387ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-16 17:13:57,358 13173ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:13:57,478 13293ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-16 17:13:57,728 13543ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:13:57,855 13670ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-16 17:13:58,127 13942ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:13:58,236 14051ms DefaultLogger          Info               - New request Ended: /api/orders
+INFO  2017-05-16 17:13:58,612 14427ms DefaultLogger          Info               - New request started: /api/orders
+INFO  2017-05-16 17:13:58,730 14546ms DefaultLogger          Info               - New request Ended: /api/orders

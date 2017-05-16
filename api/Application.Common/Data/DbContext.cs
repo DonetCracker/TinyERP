@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     public delegate void OnContextSaveChange(IDbContext context);
-    public class DbContext : IDbContext
+    public abstract class DbContext : IDbContext
     {
         private IList<OnContextSaveChange> saveChangeEvents;
         public DbContext()
