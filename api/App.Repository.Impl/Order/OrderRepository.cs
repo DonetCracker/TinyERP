@@ -9,6 +9,6 @@
     public class OrderRepository : BaseCommandRepository<App.Aggregate.Order.OrderAggregate>, IOrderRepository
     {
         public OrderRepository() : base(new AppDbContext(IOMode.Read)) { }
-        public OrderRepository(IUnitOfWork uow) : base(uow.Context as IMSSQLDbContext) { }
+        public OrderRepository(IUnitOfWork uow) : base(uow.Context) { }
     }
 }

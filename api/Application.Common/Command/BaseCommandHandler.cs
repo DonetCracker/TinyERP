@@ -54,7 +54,7 @@
             Type contextType = AssemblyHelper.GetTypes<IDbContext<TAggregate>>().FirstOrDefault();
             //if (contextType == null)
             //{
-            //    contextType = AssemblyHelper.GetTypes<IDbContext>().FirstOrDefault();
+            //    contextType = AssemblyHelper.GetTypes<IDbContext>().FirstOrDefault(item => !typeof(App.Common.Data.MongoDB.MongoDbContext).IsAssignableFrom(item));
             //}
             return contextType;
         }

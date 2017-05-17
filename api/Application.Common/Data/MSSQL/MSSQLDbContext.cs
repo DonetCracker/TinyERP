@@ -1,10 +1,8 @@
 ﻿namespace App.Common.Data.MSSQL
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
 
-    public class MSSQLDbContext : System.Data.Entity.DbContext, IMSSQLDbContext
+    public abstract class MSSQLDbContext : System.Data.Entity.DbContext, IMSSQLDbContext
     {
         private IList<OnContextSaveChange> saveChangeEvents;
         private System.Data.Entity.DbContext context;
