@@ -1,4 +1,4 @@
-﻿namespace App.Service.Registration.User
+﻿namespace App.Service.Security.User
 {
     using App.Common;
 

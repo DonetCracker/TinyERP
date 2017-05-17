@@ -8,6 +8,10 @@
         public string Code { get; set; }
         public string IsoCode { get; set; }
         public string Description { get; set; }
+        /// <summary>
+        /// this is for EF only
+        /// </summary>
+        public Language(){}
         public Language(string name, string code, string isoCode) : base()
         {
             this.Name = name;

@@ -1,15 +1,37 @@
-﻿namespace App.Api.Features.Registration
+﻿namespace App.Api.Features.Security
 {
     using App.Common.DI;
     using App.Common.Http;
+    using App.Common.MVC;
     using App.Common.MVC.Attributes;
     using App.Common.Validation;
-    using App.Service.Registration.User;
+    using App.Service.Security.User;
+    using Repository.Security;
+    using Service.Security.User;
+    using System;
     using System.Web.Http;
 
     [RoutePrefix("api/users")]
-    public class UsersController : ApiController
+    public class UsersController : BaseApiController
     {
+        [HttpPost()]
+        [Route("")]
+        [ResponseWrapper()]
+        public CreateUserResponse CreateUser([FromBody]CreateUserRequest request)
+        {
+                IUserService userService = IoC.Container.Resolve<IUserService>();
+                return userService.CreateUser(request);
+        }
+
+        [HttpGet()]
+        [Route("{userId}")]
+        [ResponseWrapper()]
+        public UserSummary GetUser([FromUri]Guid userId)
+        {
+            IUserRepository userRepo = IoC.Container.Resolve<IUserRepository>();
+            return userRepo.GetById<UserSummary>(userId.ToString());
+        }
+
         [HttpPost]
         [Route("signin")]
         public IResponseData<UserSignInResponse> SignIn([FromBody]UserSignInRequest request)

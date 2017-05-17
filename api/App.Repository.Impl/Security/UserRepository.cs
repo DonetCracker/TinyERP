@@ -1,14 +1,13 @@
-﻿namespace App.Repository.Impl.Registration
+﻿namespace App.Repository.Impl.Security
 {
-    using System;
-    using App.Entity.Registration;
-    using App.Repository.Registration;
+    using App.Entity.Security;
     using App.Common.Data;
     using App.Common.Data.MSSQL;
     using System.Linq;
     using App.Common.Configurations;
     using App.Common.DI;
     using App.Repository.Common;
+    using Repository.Security;
 
     internal class UserRepository : BaseCommandRepository<User>, IUserRepository
     {

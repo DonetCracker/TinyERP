@@ -1,8 +1,8 @@
 ﻿namespace App.Repository.Impl
 {
     using App.Common.DI;
-    using App.Repository.Impl.Registration;
-    using App.Repository.Registration;
+    using App.Repository.Impl.Security;
+    using App.Repository.Security;
 
     public class Bootstrap : App.Common.Tasks.BaseTask<IBaseContainer>, IBootstrapper
     {

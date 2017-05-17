@@ -67,7 +67,7 @@
     <Compile Include="ProductManagement\Product.cs" />
     <Compile Include="ProductManagement\ProductCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\User.cs" />
+    <Compile Include="Security\User.cs" />
     <Compile Include="Security\Permission.cs" />
     <Compile Include="Security\Role.cs" />
     <Compile Include="Security\UserGroup.cs" />
@@ -88,6 +88,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Registration\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

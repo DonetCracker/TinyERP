@@ -1,13 +1,13 @@
-﻿namespace App.Service.Impl.Registration
+﻿namespace App.Service.Impl.Security
 {
     using System;
-    using App.Service.Registration.User;
+    using App.Service.Security.User;
     using App.Common;
     using App.Common.Helpers;
     using App.Common.Data;
     using App.Common.Validation;
-    using App.Entity.Registration;
-    using App.Repository.Registration;
+    using App.Entity.Security;
+    using App.Repository.Security;
     using App.Common.DI;
     using System.Collections.Generic;
 
@@ -107,6 +107,31 @@
             IUserRepository userRepository = IoC.Container.Resolve<IUserRepository>();
             User user = userRepository.GetByToken(authenticationToken);
             return user != null && !DateTimeHelper.IsExpired(user.TokenExpiredAfter);
+        }
+
+        public CreateUserResponse CreateUser(CreateUserRequest request)
+        {
+            this.ValidateCreateUserRequest(request);
+            using (IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
+            {
+                User user = new User(request.Email, string.Empty, request.FirstName, request.LastName);
+
+                IUserRepository userRepository = IoC.Container.Resolve<IUserRepository>(uow);
+                userRepository.Add(user);
+                uow.Commit();
+
+                return ObjectHelper.Convert<CreateUserResponse>(user);
+            }
+        }
+
+        private void ValidateCreateUserRequest(CreateUserRequest request)
+        {
+            IValidationException validationException = ValidationHelper.Validate(request);
+            if (!EmailHelper.IsValid(request.Email))
+            {
+                validationException.Add(new ValidationError("security.addOrUpdateUser.validation.invalidEmail"));
+            }
+            validationException.ThrowIfError();
         }
     }
 }

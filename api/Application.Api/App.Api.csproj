@@ -223,7 +223,7 @@
     <Compile Include="Features\Share\Tasks\Secutiry\CreatePermissionTask.cs" />
     <Compile Include="Features\Share\Tasks\Data\CreateTestUsersTask.cs" />
     <Compile Include="Features\Share\Tasks\Data\CreateRoleAndPermissionTask.cs" />
-    <Compile Include="Features\Registration\UsersController.cs" />
+    <Compile Include="Features\Security\UsersController.cs" />
     <Compile Include="Features\Support\RequestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

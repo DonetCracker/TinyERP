@@ -1,7 +1,7 @@
-﻿namespace App.Repository.Registration
+﻿namespace App.Repository.Security
 {
     using App.Common.Data;
-    using App.Entity.Registration;
+    using App.Entity.Security;
 
     public interface IUserRepository : IBaseCommandRepository<User>
     {

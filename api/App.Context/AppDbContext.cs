@@ -1,6 +1,6 @@
 ﻿namespace App.Context
 {
-    using App.Entity.Registration;
+    using App.Entity.Security;
     using System.Data.Entity;
     using App.Common;
     using App.Entity.Security;

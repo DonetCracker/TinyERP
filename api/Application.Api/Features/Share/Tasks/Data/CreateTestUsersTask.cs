@@ -5,7 +5,7 @@
     using System.Web;
     using App.Common;
     using App.Common.DI;
-    using App.Service.Registration.User;
+    using App.Service.Security.User;
 
     public class CreateUsersTask : BaseTask<TaskArgument<System.Web.HttpApplication>>, IApplicationReadyTask<TaskArgument<System.Web.HttpApplication>>
     {
@@ -17,9 +17,9 @@
         public override void Execute(TaskArgument<HttpApplication> context)
         {
             this.CreateLanguages();
-            IList<Entity.Registration.User> users = new List<Entity.Registration.User>();
-            users.Add(new Entity.Registration.User("tu.tran@orientsoftware.net", "123456"));
-            users.Add(new Entity.Registration.User("tu.tran@yahoo.com", "123456", "TU", "Tran"));
+            IList<Entity.Security.User> users = new List<Entity.Security.User>();
+            users.Add(new Entity.Security.User("tu.tran@orientsoftware.net", "123456"));
+            users.Add(new Entity.Security.User("tu.tran@yahoo.com", "123456", "TU", "Tran"));
             IUserService userService = IoC.Container.Resolve<IUserService>();
             userService.CreateIfNotExist(users);
         }

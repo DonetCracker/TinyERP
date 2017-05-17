@@ -10,7 +10,7 @@
 
         public override void Execute(IBaseContainer context)
         {
-            context.RegisterSingleton<App.Service.Registration.User.IUserService, App.Service.Impl.Registration.UserService>();
+            context.RegisterSingleton<App.Service.Security.User.IUserService, App.Service.Impl.Security.UserService>();
             context.RegisterSingleton<App.Service.Common.ILanguageService, App.Service.Impl.Common.LanguageService>();
             context.RegisterSingleton<App.Service.Security.IRoleService, App.Service.Impl.Security.RoleService>();
             context.RegisterSingleton<App.Service.Security.Permission.IPermissionService, App.Service.Impl.Security.PermissionService>();

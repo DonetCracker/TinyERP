@@ -4,7 +4,7 @@
     using App.Common.Authorize;
     using App.Common.DI;
     using App.Common.Validation;
-    using App.Service.Registration.User;
+    using App.Service.Security.User;
 
     public class UserLoginAuthorization : IUserLoginAuthorization
     {

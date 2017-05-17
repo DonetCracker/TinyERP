@@ -1,4 +1,4 @@
-﻿namespace App.Entity.Registration
+﻿namespace App.Entity.Security
 {
     using System;
     using App.Common.Configurations;
@@ -17,6 +17,9 @@
         public string Password { get; set; }
         public string LanguageCode { get; set; }
         public Language Language { get; set; }
+        /// <summary>
+        /// This is for EF only
+        /// </summary>
         public User()
         {
         }
