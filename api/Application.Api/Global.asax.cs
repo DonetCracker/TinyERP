@@ -1,21 +1,12 @@
 ﻿namespace App.Api
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    using App.Common;
+    public class WebApiApplication : App.ApiContainer.ApiApplication
     {
-        private App.Common.Application.IApplication application;
-        public WebApiApplication()
+        public WebApiApplication() : base() { }
+        protected override ApplicationType GetApplicationType()
         {
-            this.application = App.Common.Application.ApplicationFactory.Create<System.Web.HttpApplication>(App.Common.ApplicationType.WebApi, this);
-        }
-
-        protected void Application_Start()
-        {
-            this.application.OnApplicationStarted();
-        }
-
-        protected void Application_End()
-        {
-            this.application.OnApplicationEnded();
+            return ApplicationType.WebApi;
         }
     }
 }

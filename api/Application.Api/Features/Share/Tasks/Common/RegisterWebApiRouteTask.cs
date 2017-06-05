@@ -1,7 +1,6 @@
 ﻿namespace App.Api.Feature.Share.Tasks.Common
 {
     using App.Common.Tasks;
-    using System.Web.Http;
     using System.Web.Routing;
     using App.Common;
 
@@ -14,7 +13,6 @@
         public override void Execute(TaskArgument<RouteCollection> arg)
         {
             if (!this.IsValid(arg.Type)) { return; }
-            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }

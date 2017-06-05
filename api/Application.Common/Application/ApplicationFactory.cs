@@ -14,6 +14,8 @@
                     return new MVCApplication<TContext>(application);
                 case ApplicationType.WebApi:
                     return new WebApiApplication(application as System.Web.HttpApplication);
+                case ApplicationType.ExternalWebApi:
+                    return new ExternalWebApiApplication(application as System.Web.HttpApplication);
                 case ApplicationType.UnitTest:
                     return new UnitTestApplication<TContext>(application);
                 default:

@@ -9,6 +9,7 @@
         public BaseTask(ApplicationType applicationType)
         {
             this.ApplicationType = applicationType;
+            this.Order = (int)TaskPriority.Normal;
         }
 
         public virtual void Execute(TArgument context)

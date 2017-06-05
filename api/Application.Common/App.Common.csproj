@@ -101,6 +101,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
@@ -129,6 +132,7 @@
     <Compile Include="Aggregate\BaseAggregateRoot.cs" />
     <Compile Include="Aggregate\IBaseAggregateRoot.cs" />
     <Compile Include="Application\ApplicationFactory.cs" />
+    <Compile Include="Application\ExternalWebApiApplication.cs" />
     <Compile Include="Authorize\IAuthorization.cs" />
     <Compile Include="Authorize\IUserLoginAuthorization.cs" />
     <Compile Include="Authorize\UnAuthorizedException.cs" />
@@ -236,8 +240,10 @@
     <Compile Include="MVC\Attributes\ValidateMimeMultipartContentFilter.cs" />
     <Compile Include="MVC\Resolver\HttpControllerTypeResolver.cs" />
     <Compile Include="Providers\MultipartFormDataMemoryStreamProvider.cs" />
+    <Compile Include="Tasks\CORS\ConfigCORS.cs" />
     <Compile Include="Tasks\IExecutable.cs" />
     <Compile Include="Tasks\IUnOrderExecutable.cs" />
+    <Compile Include="Tasks\Request\ConfigCustomControllerResolver.cs" />
     <Compile Include="UITest\BrowserRef.cs" />
     <Compile Include="UITest\IBrower.cs" />
     <Compile Include="UITest\Mail\UITestResultNotificationEmail.cs" />

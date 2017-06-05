@@ -38,7 +38,8 @@
         WebApi = 4,
         UnitTest = 8,
         IntegraitonTest = 16,
-        All = 31
+        ExternalWebApi = 32,
+        All = 63
     }
 
     [Flags]
@@ -209,5 +210,14 @@
         Elastic = 4,
         RabitMQ = 8,
         Azure = 16
+    }
+
+    public enum TaskPriority
+    {
+        CriticalHigh = 1,
+        VeryHigh = 10,
+        High = 50,
+        Medium = 100,
+        Normal = 1000
     }
 }

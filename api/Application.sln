@@ -68,6 +68,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Local.testsettings = Local.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.ApiContainer", "App.ApiContainer\App.ApiContainer.csproj", "{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -166,6 +168,10 @@ Global
 		{3CC6CEBE-07E1-477F-8341-BD7799989258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CC6CEBE-07E1-477F-8341-BD7799989258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CC6CEBE-07E1-477F-8341-BD7799989258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
