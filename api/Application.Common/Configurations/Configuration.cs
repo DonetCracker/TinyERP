@@ -20,6 +20,15 @@
             }
         }
 
+        [ConfigurationProperty("messageBus")]
+        public MessageBusElement MessageBus
+        {
+            get
+            {
+                return (MessageBusElement)this["messageBus"];
+            }
+        }
+
         [ConfigurationProperty("authentication")]
         public AuthenticationElement Authentication
         {

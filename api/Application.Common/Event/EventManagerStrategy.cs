@@ -19,6 +19,8 @@
             EventHandlerStategyType type = option == null ? EventHandlerStategyType.InApp : option.Type;
             switch (type)
             {
+                case EventHandlerStategyType.External:
+                    return new ExternalEventHandlerStategy();
                 case EventHandlerStategyType.InApp:
                 default:
                     return new InAppEventHandlerStategy();

@@ -139,14 +139,21 @@
     <Compile Include="Command\BaseCommandHandler.cs" />
     <Compile Include="Configurations\Aggregate\AggregateOption.cs" />
     <Compile Include="Configurations\Aggregate\AggregatesElement.cs" />
+    <Compile Include="Configurations\MessageBusElement.cs" />
     <Compile Include="Configurations\RepositoryElement.cs" />
     <Compile Include="Data\DbContextFactory.cs" />
     <Compile Include="Data\DbContextOption.cs" />
     <Compile Include="Data\IDbContextResolver.cs" />
     <Compile Include="Data\IBaseQueryRepository.cs" />
+    <Compile Include="Event\Strategy\ExternalEventHandlerStategy.cs" />
+    <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Mapping\ICustomMap.cs" />
     <Compile Include="Mapping\IMappingRegistration.cs" />
     <Compile Include="Mapping\MappingRegistration.cs" />
+    <Compile Include="MessageBus\CreateMessageBusEventResponse.cs" />
+    <Compile Include="MessageBus\IMessageBusProvider.cs" />
+    <Compile Include="MessageBus\MessageBusEvent.cs" />
+    <Compile Include="MessageBus\REST\RESTMessageBusProvider.cs" />
     <Compile Include="MVC\BaseApiController.cs" />
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Command\CommandHandlerController.cs" />
@@ -413,9 +420,12 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)Application.Api\Config\"
-xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.UI.Test\Config\"
-
 xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)Application.Api\Config\"
+
+xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.RESTMessageBus\Config\"
+xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)App.RESTMessageBus\Config\"
+
+xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.UI.Test\Config\"
 xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)App.UI.Test\Config\"
 
 
