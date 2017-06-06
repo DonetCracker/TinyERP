@@ -27,7 +27,6 @@ System.config({
         'jsrender': 'npmjsrender',
         'jquery': 'npmjquery',
         "jquery-validation":"npmjquery-validation"
-
     },
     packages: {
         "jquery-validation":{
