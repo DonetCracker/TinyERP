@@ -205,6 +205,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\MessageBusEventsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,6 +227,10 @@
     <ProjectReference Include="..\App.ApiContainer\App.ApiContainer.csproj">
       <Project>{0a4b68f8-ede8-4726-8b7f-32ace5167045}</Project>
       <Name>App.ApiContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.MessageBus.Service\App.MessageBus.Service.csproj">
+      <Project>{73C88B07-40DE-445D-B01A-B601E64486FC}</Project>
+      <Name>App.MessageBus.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Application.Common\App.Common.csproj">
       <Project>{fa3eaa76-30ec-41fd-b9b1-c46158b9e821}</Project>
