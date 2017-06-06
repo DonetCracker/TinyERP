@@ -22,10 +22,23 @@ System.config({
         'rxjs': 'npmrxjs',
         'ts': 'npm@plugin-typescript@4.0.10/lib/plugin.js',
         'typescript': 'npm@typescript@2.0.3/lib/typescript.js',
-        'ej-angular2': 'npmej-angular2'
+        'ej-angular2': 'npmej-angular2',
+        'syncfusion-javascript': 'npmsyncfusion-javascript',
+        'jsrender': 'npmjsrender',
+        'jquery': 'npmjquery',
+        "jquery-validation":"npmjquery-validation"
 
     },
     packages: {
+        "jquery-validation":{
+            main:"dist/jquery.validate.js"
+        },
+        "jquery":{
+            main:"dist/jquery.js"
+        },
+        "jsrender":{
+            main:"jsrender.js"
+        },
         "@app/common": {
             defaultExtension: "js"
         },
