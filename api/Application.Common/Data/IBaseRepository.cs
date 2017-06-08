@@ -14,5 +14,6 @@
         IList<TResult> GetItems<TResult>(string include = "") where TResult : IMappedFrom<TEntity>;
         IPagingData<TResult> GetAll<TResult, SearchRequestType>(IPagingRequest<SearchRequestType> request) where TResult : IMappedFrom<TEntity>;
         IPagingData<TEntity> GetAll<SearchRequestType>(IPagingRequest<SearchRequestType> request);
+        asfadsjfasf
     }
 }
