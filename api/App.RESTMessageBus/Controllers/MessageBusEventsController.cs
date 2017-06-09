@@ -1,22 +1,25 @@
 ﻿namespace App.RESTMessageBus.Controllers
 {
-    using App.Common.MVC;
-    using MessageBus.Service;
-    using Common.DI;
     using Common.MessageBus;
     using Common.MVC.Attributes;
     using System.Web.Http;
+    using Common.Command;
+    using MessageBus.Aggregate;
+    using MessageBus.CommandHandler.BusEvent;
 
     [RoutePrefix("api/messageBus")]
-    public class MessageBusEventsController : BaseApiController
+    public class MessageBusEventCommandHandler : CommandHandlerController<BusEventAggregate>
     {
         [HttpPost]
         [Route("")]
         [ResponseWrapper()]
-        public CreateMessageBusEventResponse CreateMessage(MessageBusEvent ev)
+        public CreateMessageBusEventResponse CreateMessage(CreateBusEventRequest ev)
         {
-            IMessageBusEventService service = IoC.Container.Resolve<IMessageBusEventService>();
-            return service.Create(ev);
+            this.Execute(ev);
+            /// need to consider how to return response data to caller
+            return new CreateMessageBusEventResponse();
+            //IMessageBusEventService service = IoC.Container.Resolve<IMessageBusEventService>();
+            //return service.Create(ev);
         }
     }
 }
