@@ -8,3 +8,4 @@ client/src/**/*.js
 !client/resources
 !client/themes
 client/dist/
+api/.vs/config/applicationhost.config
