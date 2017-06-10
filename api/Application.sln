@@ -70,6 +70,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.ApiContainer", "App.ApiContainer\App.ApiContainer.csproj", "{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Security.Owin", "App.Security.Owin\App.Security.Owin.csproj", "{0F882080-8C67-4BF6-AD24-828310C24CAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{D86CB721-1FEF-4222-8D89-0FB9EED9E293}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -172,6 +176,10 @@ Global
 		{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A4B68F8-EDE8-4726-8B7F-32ACE5167045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F882080-8C67-4BF6-AD24-828310C24CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F882080-8C67-4BF6-AD24-828310C24CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F882080-8C67-4BF6-AD24-828310C24CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F882080-8C67-4BF6-AD24-828310C24CAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,5 +208,6 @@ Global
 		{A7DCFF43-EE80-4451-832E-9AFE73AA2139} = {CDA03032-1CCB-4AB7-9A3F-61A333F05080}
 		{3CC6CEBE-07E1-477F-8341-BD7799989258} = {0E44EAE7-B1E3-44EE-BD0B-3D5F22164C53}
 		{511DF273-48C6-4E71-832C-D41FF4B7BAB6} = {0E44EAE7-B1E3-44EE-BD0B-3D5F22164C53}
+		{0F882080-8C67-4BF6-AD24-828310C24CAB} = {D86CB721-1FEF-4222-8D89-0FB9EED9E293}
 	EndGlobalSection
 EndGlobal

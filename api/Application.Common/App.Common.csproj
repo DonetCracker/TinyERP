@@ -134,6 +134,7 @@
     <Compile Include="Application\ApplicationFactory.cs" />
     <Compile Include="Application\ExternalWebApiApplication.cs" />
     <Compile Include="Authorize\IAuthorization.cs" />
+    <Compile Include="Authorize\IAuthService.cs" />
     <Compile Include="Authorize\IUserLoginAuthorization.cs" />
     <Compile Include="Authorize\UnAuthorizedException.cs" />
     <Compile Include="Command\BaseCommandHandler.cs" />
