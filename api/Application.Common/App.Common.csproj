@@ -242,6 +242,7 @@
     <Compile Include="Providers\MultipartFormDataMemoryStreamProvider.cs" />
     <Compile Include="Tasks\CORS\ConfigCORS.cs" />
     <Compile Include="Tasks\IExecutable.cs" />
+    <Compile Include="Tasks\IConfigAppTask.cs" />
     <Compile Include="Tasks\IUnOrderExecutable.cs" />
     <Compile Include="Tasks\Request\ConfigCustomControllerResolver.cs" />
     <Compile Include="UITest\BrowserRef.cs" />
