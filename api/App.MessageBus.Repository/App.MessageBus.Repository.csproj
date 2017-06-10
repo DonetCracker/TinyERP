@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90C94E2B-065A-4473-A8BB-3629CBFDAC1A}</ProjectGuid>
+    <ProjectGuid>{9AE8C3CB-ADC9-486F-AA75-7167B262AD40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>App.MessageBus.CommandHandler.Impl</RootNamespace>
-    <AssemblyName>App.MessageBus.CommandHandler.Impl</AssemblyName>
+    <RootNamespace>App.MessageBus.Repository</RootNamespace>
+    <AssemblyName>App.MessageBus.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,34 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrap.cs" />
-    <Compile Include="BusEvent\BusEventCommandHandler.cs" />
+    <Compile Include="IBusEventRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.MessageBus.Aggragate\App.MessageBus.Aggregate.csproj">
-      <Project>{70B4C5D3-79FF-4320-A157-B367A4533EF1}</Project>
+      <Project>{70b4c5d3-79ff-4320-a157-b367a4533ef1}</Project>
       <Name>App.MessageBus.Aggregate</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App.MessageBus.CommandHandler\App.MessageBus.CommandHandler.csproj">
-      <Project>{07211B07-1032-402C-B66F-87FFEC913F6A}</Project>
-      <Name>App.MessageBus.CommandHandler</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.MessageBus.Repository\App.MessageBus.Repository.csproj">
-      <Project>{9ae8c3cb-adc9-486f-aa75-7167b262ad40}</Project>
-      <Name>App.MessageBus.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Application.Common\App.Common.csproj">
-      <Project>{FA3EAA76-30EC-41FD-B9B1-C46158B9E821}</Project>
+      <Project>{fa3eaa76-30ec-41fd-b9b1-c46158b9e821}</Project>
       <Name>App.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

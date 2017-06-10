@@ -7,7 +7,7 @@
 
     public class ConfigServicesContainerTask : BaseTask<TaskArgument<ServicesContainer>>, IServiceContainerConfiguredTask<TaskArgument<ServicesContainer>>
     {
-        public ConfigServicesContainerTask() : base(ApplicationType.MVC | ApplicationType.WebApi)
+        public ConfigServicesContainerTask() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.MessageBus)
         {
         }
 

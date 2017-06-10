@@ -8,3 +8,6 @@ client/src/**/*.js
 !client/resources
 !client/themes
 client/dist/
+api/.vs/config/applicationhost.config
+api/App.MessageBus/logs/log.txt
+api/Application.Api/logs/log.txt

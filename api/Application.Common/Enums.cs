@@ -39,7 +39,8 @@
         UnitTest = 8,
         IntegraitonTest = 16,
         ExternalWebApi = 32,
-        All = 63
+        MessageBus=64,
+        All = 127
     }
 
     [Flags]

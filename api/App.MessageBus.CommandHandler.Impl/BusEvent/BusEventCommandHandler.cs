@@ -14,14 +14,15 @@
     {
         public void Handle(CreateBusEventRequest command)
         {
-            //this.ValidateCreateBusEventRequest(command);
-            //BusEventAggregate aggregate = AggregateFactory.Create<BusEventAggregate>();
-            //aggregate.CreateEventContent(command.Key, command.Content);
-            //using (IUnitOfWork uow = this.CreateUnitOfWork<BusEventAggregate>()) {
-            //    //IBusEventRepository repo = IoC.Container.Resolve<IBusEventRespository>(uow);
-            //    //repo.Add(aggregate);
-            //    //uow.Commit();
-            //}
+            this.ValidateCreateBusEventRequest(command);
+            BusEventAggregate aggregate = AggregateFactory.Create<BusEventAggregate>();
+            aggregate.CreateEventContent(command.Key, command.Content);
+            using (IUnitOfWork uow = this.CreateUnitOfWork<BusEventAggregate>())
+            {
+                Repository.IBusEventRepository repo = IoC.Container.Resolve<Repository.IBusEventRepository>(uow);
+                repo.Add(aggregate);
+                uow.Commit();
+            }
         }
 
         private void ValidateCreateBusEventRequest(CreateBusEventRequest command)

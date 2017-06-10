@@ -8,7 +8,7 @@
 
     public class MvcRegisterCastleContainerTask : BaseTask<TaskArgument<System.Web.HttpApplication>>, IApplicationStartedTask<TaskArgument<System.Web.HttpApplication>>
     {
-        public MvcRegisterCastleContainerTask() : base(ApplicationType.MVC | ApplicationType.WebApi)
+        public MvcRegisterCastleContainerTask() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.MessageBus)
         {
         }
 

@@ -5,7 +5,8 @@
     using System.Web.Routing;
     public class ConfigCORS : BaseTask<TaskArgument<RouteCollection>>, IRouteConfiguredTask
     {
-        public ConfigCORS() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.ExternalWebApi){
+        public ConfigCORS() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.ExternalWebApi | ApplicationType.MessageBus)
+        {
             this.Order = 100;
         }
 

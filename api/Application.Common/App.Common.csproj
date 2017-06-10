@@ -422,8 +422,8 @@
     <PostBuildEvent>xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)Application.Api\Config\"
 xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)Application.Api\Config\"
 
-xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.RESTMessageBus\Config\"
-xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)App.RESTMessageBus\Config\"
+xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.MessageBus\Config\"
+xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)App.MessageBus\Config\"
 
 xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.UI.Test\Config\"
 xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)App.UI.Test\Config\"

@@ -8,7 +8,7 @@
     {
         private ILogger logger;
 
-        public UnHandledError() : base(ApplicationType.MVC | ApplicationType.WebApi)
+        public UnHandledError() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.MessageBus)
         {
             this.logger = new DefaultLogger();
         }

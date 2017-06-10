@@ -13,6 +13,7 @@
                 case ApplicationType.MVC:
                     return new MVCApplication<TContext>(application);
                 case ApplicationType.WebApi:
+                case ApplicationType.MessageBus:
                     return new WebApiApplication(application as System.Web.HttpApplication);
                 case ApplicationType.ExternalWebApi:
                     return new ExternalWebApiApplication(application as System.Web.HttpApplication);

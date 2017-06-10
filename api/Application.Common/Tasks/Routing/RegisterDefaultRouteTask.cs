@@ -6,7 +6,8 @@
 
     public class RegisterDefaultRouteTask : BaseTask<TaskArgument<RouteCollection>>, IRouteConfiguredTask
     {
-        public RegisterDefaultRouteTask() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.ExternalWebApi){
+        public RegisterDefaultRouteTask() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.ExternalWebApi | ApplicationType.MessageBus)
+        {
         }
 
         public override void Execute(TaskArgument<RouteCollection> arg)

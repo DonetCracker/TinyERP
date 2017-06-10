@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90C94E2B-065A-4473-A8BB-3629CBFDAC1A}</ProjectGuid>
+    <ProjectGuid>{E15384B4-8AFD-4BD6-9E31-09E7AF12E0C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>App.MessageBus.CommandHandler.Impl</RootNamespace>
-    <AssemblyName>App.MessageBus.CommandHandler.Impl</AssemblyName>
+    <RootNamespace>App.MessageBus.Repository.Impl</RootNamespace>
+    <AssemblyName>App.MessageBus.Repository.Impl</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
-    <Compile Include="BusEvent\BusEventCommandHandler.cs" />
+    <Compile Include="BusEventRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,9 +56,9 @@
       <Project>{70B4C5D3-79FF-4320-A157-B367A4533EF1}</Project>
       <Name>App.MessageBus.Aggregate</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App.MessageBus.CommandHandler\App.MessageBus.CommandHandler.csproj">
-      <Project>{07211B07-1032-402C-B66F-87FFEC913F6A}</Project>
-      <Name>App.MessageBus.CommandHandler</Name>
+    <ProjectReference Include="..\App.MessageBus.Context\App.MessageBus.Context.csproj">
+      <Project>{cb314f62-be82-4303-aa09-1958decd42c9}</Project>
+      <Name>App.MessageBus.Context</Name>
     </ProjectReference>
     <ProjectReference Include="..\App.MessageBus.Repository\App.MessageBus.Repository.csproj">
       <Project>{9ae8c3cb-adc9-486f-aa75-7167b262ad40}</Project>
@@ -62,12 +69,9 @@
       <Name>App.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

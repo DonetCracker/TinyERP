@@ -5,7 +5,7 @@
 
     public class RequestEnded : BaseTask<TaskArgument<HttpApplication>>, IApplicationRequestEndedTask<TaskArgument<HttpApplication>>
     {
-        public RequestEnded() : base(ApplicationType.MVC | ApplicationType.WebApi)
+        public RequestEnded() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.MessageBus)
         {
         }
 

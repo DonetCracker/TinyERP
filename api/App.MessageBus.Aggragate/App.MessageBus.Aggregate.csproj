@@ -44,6 +44,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.MessageBus.Event\App.MessageBus.Event.csproj">
+      <Project>{6f02b95c-883c-4e92-a2f0-8fa3144b9625}</Project>
+      <Name>App.MessageBus.Event</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Application.Common\App.Common.csproj">
       <Project>{fa3eaa76-30ec-41fd-b9b1-c46158b9e821}</Project>
       <Name>App.Common</Name>

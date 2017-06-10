@@ -5,7 +5,7 @@
     using System.Web.Routing;
     public class ConfigCustomControllerResolver : BaseTask<TaskArgument<RouteCollection>>, IRouteConfiguredTask
     {
-        public ConfigCustomControllerResolver() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.ExternalWebApi)
+        public ConfigCustomControllerResolver() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.MessageBus | ApplicationType.ExternalWebApi)
         {
             this.Order = (int)TaskPriority.Medium;
         }

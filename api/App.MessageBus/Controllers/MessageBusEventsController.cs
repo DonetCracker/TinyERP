@@ -1,4 +1,4 @@
-﻿namespace App.RESTMessageBus.Controllers
+﻿namespace App.MessageBus.Controllers
 {
     using Common.MessageBus;
     using Common.MVC.Attributes;
@@ -7,7 +7,7 @@
     using MessageBus.Aggregate;
     using MessageBus.CommandHandler.BusEvent;
 
-    [RoutePrefix("api/messageBus")]
+    [RoutePrefix("api/busevents")]
     public class MessageBusEventCommandHandler : CommandHandlerController<BusEventAggregate>
     {
         [HttpPost]
@@ -18,8 +18,6 @@
             this.Execute(ev);
             /// need to consider how to return response data to caller
             return new CreateMessageBusEventResponse();
-            //IMessageBusEventService service = IoC.Container.Resolve<IMessageBusEventService>();
-            //return service.Create(ev);
         }
     }
 }

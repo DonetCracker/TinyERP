@@ -5,7 +5,7 @@
 
     public class RequestStarted : BaseTask<TaskArgument<HttpApplication>>, IApplicationRequestStartedTask<TaskArgument<HttpApplication>>
     {
-        public RequestStarted() : base(ApplicationType.MVC | ApplicationType.WebApi)
+        public RequestStarted() : base(ApplicationType.MVC | ApplicationType.WebApi | ApplicationType.MessageBus)
         {
         }
 
