@@ -7,7 +7,7 @@
 
     public class CommandHandlerStrategyFactory
     {
-        internal static ICommandHandlerStrategy Create<TAggregate>() where TAggregate : IBaseAggregateRoot
+        public static ICommandHandlerStrategy Create<TAggregate>() where TAggregate : IBaseAggregateRoot
         {
             string className = typeof(TAggregate).FullName;
             CommandHandlerOption option = Configuration.Current.CommandHandlerSettings[className];

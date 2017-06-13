@@ -321,6 +321,34 @@
       <Project>{44db0641-ef31-4a87-bde5-fb32a2b6a170}</Project>
       <Name>App.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.Security.Aggregate\App.Security.Aggregate.csproj">
+      <Project>{18732316-6f3a-4806-8eb8-6a8914eaf0d6}</Project>
+      <Name>App.Security.Aggregate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Command.Impl\App.Security.Command.Impl.csproj">
+      <Project>{673dd1fe-27ce-48f4-b331-c6d40c32baa0}</Project>
+      <Name>App.Security.Command.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Command\App.Security.Command.csproj">
+      <Project>{4a5e5b9e-e56c-4aba-ae52-25549c038514}</Project>
+      <Name>App.Security.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Context\App.Security.Context.csproj">
+      <Project>{332ae2aa-d906-48ad-a6a9-1e628b352411}</Project>
+      <Name>App.Security.Context</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Owin\App.Security.Owin.csproj">
+      <Project>{0f882080-8c67-4bf6-ad24-828310c24cab}</Project>
+      <Name>App.Security.Owin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Repository.Impl\App.Security.Repository.Impl.csproj">
+      <Project>{4e8c0c7b-59ee-45b8-93de-81fe6de39529}</Project>
+      <Name>App.Security.Repository.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Repository\App.Security.Repository.csproj">
+      <Project>{9a4a2f00-5492-4412-950b-f8290462a648}</Project>
+      <Name>App.Security.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Service.Impl\App.Service.Impl.csproj">
       <Project>{67b29bb8-6aeb-48ee-9328-a4199943fd6a}</Project>
       <Name>App.Service.Impl</Name>

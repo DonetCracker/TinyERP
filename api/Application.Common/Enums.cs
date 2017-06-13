@@ -220,4 +220,12 @@
         Medium = 100,
         Normal = 1000
     }
+
+    public enum UserAccountStatus
+    {
+        Active = 1,
+        InActive = 2,
+        Pending = 3,
+        Deleted = 4,
+    }
 }

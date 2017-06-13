@@ -13,7 +13,7 @@
         {
             if (!this.IsValid(arg.Type)) { return; }
 
-            arg.Data.Use<UserNamePwdAuthMiddleware>(new UserNamePwdAuthOptions(), true);
+            arg.Data.Use<UserNamePwdAuthMiddleware>(new UserNamePwdAuthOptions());
         }
     }
 }
