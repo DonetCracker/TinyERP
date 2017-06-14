@@ -47,9 +47,11 @@
                 return null;
             }
             string[] elementsInHeader = acceptLanguageValues.ToList()[0].Split(new string[] { Constants.AUTHENTICATION_TOKEN_SEPERATOR }, StringSplitOptions.RemoveEmptyEntries);
+            string userName = elementsInHeader[0];
+            string pwd = elementsInHeader[1];
 
             ICommandHandlerStrategy commandHandlerStrategy = CommandHandlerStrategyFactory.Create<User>();
-            UserNameAndPwdAuthenticationRequest request = new UserNameAndPwdAuthenticationRequest(elementsInHeader[0], elementsInHeader[1]);
+            UserNameAndPwdAuthenticationRequest request = new UserNameAndPwdAuthenticationRequest(userName, pwd);
             commandHandlerStrategy.Execute(request);
             return request.Result;
         }

@@ -1,11 +1,12 @@
-﻿namespace App.Common.Tasks.Mapping
+﻿namespace App.Security.Owin
 {
-    using Owin;
+    using Common.Tasks;
+    using global::Owin;
     using Security.Owin.UserNamePwd;
 
     public class ConfigAuthTask : BaseTask<TaskArgument<IAppBuilder>>, IConfigAppTask<TaskArgument<IAppBuilder>>
     {
-        public ConfigAuthTask() : base(ApplicationType.All)
+        public ConfigAuthTask() : base(App.Common.ApplicationType.All)
         {
         }
 
