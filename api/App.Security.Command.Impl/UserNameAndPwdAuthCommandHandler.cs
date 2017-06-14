@@ -9,6 +9,7 @@
     using Common.DI;
     using Common.Helpers;
     using Common.Validation;
+    using Event.Authentication;
 
     internal class UserNameAndPwdAuthCommandHandler : BaseCommandHandler, IUserNameAndPwdAuthCommandHandler
     {
@@ -22,6 +23,7 @@
                 if (user == null)
                 {
                     command.Result = new UserNameAndPwdAuthenticationResult(false);
+                    this.Publish(new OnAuthenticationFailed(command.UserName, command.Password, DateTime.UtcNow));
                     return;
                 }
                 user.GenerateLoginToken();
@@ -35,6 +37,7 @@
                     user.LoginToken,
                     user.TokenExpiredAfter
                 );
+                this.Publish(new OnAuthenticationSuccess(user.FistName, user.LastName, user.Email, user.LoginToken, user.TokenExpiredAfter, DateTime.UtcNow));
             }
         }
 

@@ -337,6 +337,10 @@
       <Project>{332ae2aa-d906-48ad-a6a9-1e628b352411}</Project>
       <Name>App.Security.Context</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.Security.EventHandler.Impl\App.Security.EventHandler.Impl.csproj">
+      <Project>{6890b222-5149-4f69-a1f9-d881301ff963}</Project>
+      <Name>App.Security.EventHandler.Impl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Security.Owin\App.Security.Owin.csproj">
       <Project>{0f882080-8c67-4bf6-ad24-828310c24cab}</Project>
       <Name>App.Security.Owin</Name>
