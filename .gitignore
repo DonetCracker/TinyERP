@@ -9,3 +9,4 @@ client/src/**/*.js
 !client/themes
 client/dist/
 api/.vs/config/applicationhost.config
+**/logs/log.txt
