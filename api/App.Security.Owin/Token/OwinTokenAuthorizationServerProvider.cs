@@ -9,6 +9,7 @@
     using System;
     using App.Common.Command;
     using App.Security.Aggregate;
+    using Common.Configurations;
 
     internal class OwinTokenAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
@@ -18,7 +19,7 @@
         }
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { Configuration.Current.Authentication.AllowOrigins });
             string userName = context.UserName;
             string password = context.Password;
 

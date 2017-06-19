@@ -18,5 +18,19 @@
                 return (AuthType)this["authType"];
             }
         }
+
+        [ConfigurationProperty("path")]
+        public string Path {
+            get {
+                return (string)this["path"];
+            }
+        }
+
+        [ConfigurationProperty("allowOrigins")]
+        public string AllowOrigins {
+            get {
+                return (string)this["allowOrigins"];
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@
     using Microsoft.Owin.Security.OAuth;
     using Security.Owin.UserNamePwd;
     using System;
+    using System.Web.Http;
 
     public class ConfigAuthTask : BaseTask<TaskArgument<IAppBuilder>>, IConfigAppTask<TaskArgument<IAppBuilder>>
     {
@@ -38,12 +39,14 @@
             OAuthAuthorizationServerOptions options = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new Microsoft.Owin.PathString("/auth/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                TokenEndpointPath = new Microsoft.Owin.PathString(Configuration.Current.Authentication.Path),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(Configuration.Current.Authentication.TokenExpiredAfterInMinute),
                 Provider = new OwinTokenAuthorizationServerProvider()
             };
+            HttpConfiguration config = new HttpConfiguration();
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseOAuthAuthorizationServer(options);
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
         private void ConfigBasicAuth(IAppBuilder app)
         {
