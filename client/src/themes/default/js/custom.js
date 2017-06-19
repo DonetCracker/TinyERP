@@ -177,11 +177,11 @@ $(document).ready(function() {
 // /Panel toolbox
 
 // Tooltip
-$(document).ready(function() {
-    $('[data-toggle="tooltip"]').tooltip({
-        container: 'body'
-    });
-});
+// $(document).ready(function() {
+//     $('[data-toggle="tooltip"]').tooltip({
+//         container: 'body'
+//     });
+// });
 // /Tooltip
 
 // Progressbar
@@ -287,15 +287,15 @@ $(document).ready(function() {
 });
 
 // NProgress
-if (typeof NProgress != 'undefined') {
-    $(document).ready(function () {
-        NProgress.start();
-    });
+// if (typeof NProgress != 'undefined') {
+//     $(document).ready(function () {
+//         NProgress.start();
+//     });
 
-    $(window).load(function () {
-        NProgress.done();
-    });
-}
+//     $(window).load(function () {
+//         NProgress.done();
+//     });
+// }
 
 	
 	  //hover and retain popover when on popover content
@@ -5065,3 +5065,5 @@ if (typeof NProgress != 'undefined') {
 	});	
 	
 
+
+	

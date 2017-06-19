@@ -12,6 +12,7 @@
     [RoutePrefix("api/permissions")]
     public class PermissionsController : BaseApiController
     {
+        [Authorize()]
         [HttpGet]
         [Route("")]
         [ResponseWrapper()]

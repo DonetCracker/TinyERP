@@ -43,5 +43,11 @@
             TaskArgument<TContext> taskArg = new TaskArgument<TContext>(this.Context, this.Type);
             AssemblyHelper.ExecuteTasks<IUnHandledErrorTask<TaskArgument<TContext>>, TaskArgument<TContext>>(taskArg, true);
         }
+
+        public virtual void Config<IApp>(IApp app)
+        {
+            TaskArgument<IApp> taskArg = new TaskArgument<IApp>(app, this.Type);
+            AssemblyHelper.ExecuteTasks<IConfigAppTask<TaskArgument<IApp>>, TaskArgument<IApp>>(taskArg, true);
+        }
     }
 }

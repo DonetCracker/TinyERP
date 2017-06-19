@@ -9,5 +9,4 @@ client/src/**/*.js
 !client/themes
 client/dist/
 api/.vs/config/applicationhost.config
-api/App.MessageBus/logs/log.txt
-api/Application.Api/logs/log.txt
+**/logs/log.txt

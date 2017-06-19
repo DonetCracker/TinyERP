@@ -7,5 +7,6 @@
         void OnApplicationRequestEnded();
         void OnUnHandledError();
         void OnApplicationEnded();
+        void Config<IApp>(IApp app);
     }
 }

@@ -21,5 +21,9 @@
         {
             this.application.OnApplicationEnded();
         }
+
+        protected void Config<IApp>(IApp app) {
+            this.application.Config<IApp>(app);
+        }
     }
 }

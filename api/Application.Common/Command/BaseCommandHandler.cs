@@ -5,6 +5,7 @@
     using Configurations;
     using Configurations.EventHandler;
     using DI;
+    using Event;
     using Helpers;
     using Logging;
     using System;
@@ -57,6 +58,12 @@
             //    contextType = AssemblyHelper.GetTypes<IDbContext>().FirstOrDefault(item => !typeof(App.Common.Data.MongoDB.MongoDbContext).IsAssignableFrom(item));
             //}
             return contextType;
+        }
+
+        protected void Publish<TEvent>(TEvent ev) where TEvent : IEvent
+        {
+            IEventManagerStrategy eventStrategyManager = IoC.Container.Resolve<IEventManagerStrategy>();
+            eventStrategyManager.Publish(ev);
         }
     }
 }

@@ -135,8 +135,10 @@
     <Compile Include="Application\ExternalWebApiApplication.cs" />
     <Compile Include="Authorize\IAuthorization.cs" />
     <Compile Include="Authorize\IUserLoginAuthorization.cs" />
+    <Compile Include="Authorize\IUserNameAndPwdAuthService.cs" />
     <Compile Include="Authorize\UnAuthorizedException.cs" />
     <Compile Include="Command\BaseCommandHandler.cs" />
+    <Compile Include="Command\BaseCommandWithResult.cs" />
     <Compile Include="Configurations\Aggregate\AggregateOption.cs" />
     <Compile Include="Configurations\Aggregate\AggregatesElement.cs" />
     <Compile Include="Configurations\MessageBusElement.cs" />
@@ -249,6 +251,7 @@
     <Compile Include="Providers\MultipartFormDataMemoryStreamProvider.cs" />
     <Compile Include="Tasks\CORS\ConfigCORS.cs" />
     <Compile Include="Tasks\IExecutable.cs" />
+    <Compile Include="Tasks\IConfigAppTask.cs" />
     <Compile Include="Tasks\IUnOrderExecutable.cs" />
     <Compile Include="Tasks\Request\ConfigCustomControllerResolver.cs" />
     <Compile Include="UITest\BrowserRef.cs" />
