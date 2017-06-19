@@ -14,7 +14,7 @@
             if (!this.IsValid(arg.Type)) { return; }
             GlobalConfiguration.Configure((HttpConfiguration config) =>
             {
-                config.Services.Replace(typeof(IHttpControllerTypeResolver), new App.Common.MVC.Resolver.HttpControllerTypeResolver());
+                //config.Services.Replace(typeof(IHttpControllerTypeResolver), new App.Common.MVC.Resolver.HttpControllerTypeResolver());
                 config.MapHttpAttributeRoutes();
             });
         }

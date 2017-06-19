@@ -4,9 +4,12 @@
     using App.Common.Configurations;
     using App.Common.Extensions;
     using App.Common.Validation;
+    using App.Security.Owin.Token;
     using Common.Tasks;
     using global::Owin;
+    using Microsoft.Owin.Security.OAuth;
     using Security.Owin.UserNamePwd;
+    using System;
 
     public class ConfigAuthTask : BaseTask<TaskArgument<IAppBuilder>>, IConfigAppTask<TaskArgument<IAppBuilder>>
     {
@@ -32,6 +35,15 @@
         }
         private void ConfigOwinTokenBase(IAppBuilder app)
         {
+            OAuthAuthorizationServerOptions options = new OAuthAuthorizationServerOptions()
+            {
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new Microsoft.Owin.PathString("/auth/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                Provider = new OwinTokenAuthorizationServerProvider()
+            };
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.UseOAuthAuthorizationServer(options);
         }
         private void ConfigBasicAuth(IAppBuilder app)
         {
