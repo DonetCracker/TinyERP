@@ -2,11 +2,9 @@
 {
     using System.Threading.Tasks;
     using Microsoft.Owin.Security.OAuth;
-    using App.Common.Helpers;
     using App.Security.Command.UserNameAndPwd;
     using System.Collections.Generic;
     using System.Security.Claims;
-    using System;
     using App.Common.Command;
     using App.Security.Aggregate;
     using Common.Configurations;
