@@ -9,5 +9,14 @@
         {
             get { return (double)this["tokenExpiredAfterInMinute"]; }
         }
+
+        [ConfigurationProperty("authType")]
+        public AuthType AuthType
+        {
+            get
+            {
+                return (AuthType)this["authType"];
+            }
+        }
     }
 }

@@ -228,4 +228,15 @@
         Pending = 3,
         Deleted = 4,
     }
+    [Flags]
+    public enum AuthType
+    {
+        /// <summary>
+        /// User name/ pwd authentication
+        /// </summary>
+        OwinBasic = 1,
+        OwinTokenBase = 2,
+        Owin = 127,
+        Google = 128
+    }
 }
