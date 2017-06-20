@@ -1,23 +1,29 @@
-﻿namespace App.Security.Command.UserNameAndPwd
+﻿namespace App.Security.Command
 {
+    using App.Common.Mapping;
     using System;
-    public class UserNameAndPwdAuthenticationResult
+    public class AuthenticationResult : IMappedFrom<App.Security.Aggregate.User>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName { get { return String.Format("{0} {1}", this.FirstName, this.LastName); } }
         public string Email { get; set; }
         public bool IsValid { get; set; }
-        public string Token { get; set; }
-        public DateTime ExpiredAfter { get; set; }
-        public UserNameAndPwdAuthenticationResult(bool isValid = false)
+        public string LoginToken { get; set; }
+        public DateTime TokenExpiredAfter { get; set; }
+
+        /// <summary>
+        /// Do not new instance using this ctor
+        /// </summary>
+        public AuthenticationResult() { }
+        public AuthenticationResult(bool isValid = false)
         {
             this.IsValid = isValid;
-            this.Token = string.Empty;
-            this.ExpiredAfter = DateTime.UtcNow;
+            this.LoginToken = string.Empty;
+            this.TokenExpiredAfter = DateTime.UtcNow;
         }
 
-        public UserNameAndPwdAuthenticationResult(
+        public AuthenticationResult(
             string firstName,
             string lastName,
             string email,
@@ -29,8 +35,8 @@
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Email = email;
-            this.Token = loginToken;
-            this.ExpiredAfter = tokenExpiredAfter;
+            this.LoginToken = loginToken;
+            this.TokenExpiredAfter = tokenExpiredAfter;
         }
     }
 }

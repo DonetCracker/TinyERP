@@ -1,7 +1,7 @@
 ﻿namespace App.Security.Command.UserNameAndPwd
 {
     using App.Common.Command;
-    public class UserNameAndPwdAuthenticationRequest : BaseCommandWithResult<UserNameAndPwdAuthenticationResult>
+    public class UserNameAndPwdAuthenticationRequest : BaseCommandWithResult<AuthenticationResult>
     {
         public string UserName { get; set; }
         public string Password { get; set; }

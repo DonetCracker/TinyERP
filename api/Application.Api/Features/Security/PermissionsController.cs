@@ -12,7 +12,7 @@
     [RoutePrefix("api/permissions")]
     public class PermissionsController : BaseApiController
     {
-        [Authorize()]
+        [Authorize(Roles ="admin")]
         [HttpGet]
         [Route("")]
         [ResponseWrapper()]
@@ -22,7 +22,7 @@
             IList<PermissionAsKeyNamePair> pers = permissionService.GetPermissions();
             return pers;
         }
-
+        [Authorize(Roles ="user")]
         [HttpGet]
         [Route("{id}")]
         [ResponseWrapper()]

@@ -22,21 +22,17 @@
                 User user = repository.GetActiveUser(command.UserName, EncodeHelper.EncodePassword(command.Password));
                 if (user == null)
                 {
-                    command.Result = new UserNameAndPwdAuthenticationResult(false);
+                    command.Result = new AuthenticationResult(false);
                     this.Publish(new OnAuthenticationFailed(command.UserName, command.Password, DateTime.UtcNow));
                     return;
                 }
                 user.GenerateLoginToken();
                 repository.Update(user);
                 uow.Commit();
-                command.Result = new UserNameAndPwdAuthenticationResult(
-                    user.FistName,
-                    user.LastName,
-                    user.Email,
-                    true,
-                    user.LoginToken,
-                    user.TokenExpiredAfter
-                );
+
+                command.Result = ObjectHelper.Convert<AuthenticationResult>(user);
+                command.Result.IsValid = true;
+
                 this.Publish(new OnAuthenticationSuccess(user.FistName, user.LastName, user.Email, user.LoginToken, user.TokenExpiredAfter, DateTime.UtcNow));
             }
         }
