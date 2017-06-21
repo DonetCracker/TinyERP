@@ -9,6 +9,7 @@
         public override void Execute(IBaseContainer context)
         {
             context.RegisterSingleton<App.Common.Command.IBaseCommandHandler<App.Security.Command.UserNameAndPwd.UserNameAndPwdAuthenticationRequest>, App.Security.Command.Impl.UserNameAndPwdAuthCommandHandler>("UserNameAndPwdAuthenticationRequest");
+            context.RegisterSingleton<App.Common.Command.IBaseCommandHandler<App.Security.Command.CreateUserCommand>, App.Security.Command.Impl.SecurityCommandHandler>("CreateUserCommand");
         }
     }
 }

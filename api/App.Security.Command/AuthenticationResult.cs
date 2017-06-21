@@ -1,6 +1,7 @@
 ﻿namespace App.Security.Command
 {
     using App.Common.Mapping;
+    using App.Security.Aggregate;
     using System;
     public class AuthenticationResult : IMappedFrom<App.Security.Aggregate.User>
     {
@@ -11,32 +12,12 @@
         public bool IsValid { get; set; }
         public string LoginToken { get; set; }
         public DateTime TokenExpiredAfter { get; set; }
-
-        /// <summary>
-        /// Do not new instance using this ctor
-        /// </summary>
-        public AuthenticationResult() { }
+        public Roles Roles { get; set; }
         public AuthenticationResult(bool isValid = false)
         {
             this.IsValid = isValid;
             this.LoginToken = string.Empty;
             this.TokenExpiredAfter = DateTime.UtcNow;
-        }
-
-        public AuthenticationResult(
-            string firstName,
-            string lastName,
-            string email,
-            bool isValid,
-            string loginToken,
-            DateTime tokenExpiredAfter
-        ) : this(isValid)
-        {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Email = email;
-            this.LoginToken = loginToken;
-            this.TokenExpiredAfter = tokenExpiredAfter;
         }
     }
 }

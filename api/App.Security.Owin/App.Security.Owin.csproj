@@ -58,6 +58,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -78,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigAuthTask.cs" />
+    <Compile Include="Tasks\CreateTestUserTask.cs" />
     <Compile Include="Token\OwinTokenAuthorizationServerProvider.cs" />
     <Compile Include="UserNamePwd\OwinAuthenticationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

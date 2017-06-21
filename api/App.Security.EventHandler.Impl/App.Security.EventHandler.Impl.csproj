@@ -43,6 +43,7 @@
     <Compile Include="AuthenticationEventHandler.cs" />
     <Compile Include="Bootstrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.Security.EventHandler\App.Security.EventHandler.csproj">

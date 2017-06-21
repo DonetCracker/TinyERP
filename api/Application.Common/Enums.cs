@@ -239,4 +239,17 @@
         Owin = 127,
         Google = 128
     }
+    public struct SecurityRoleType
+    {
+        public const string Administrator = "Administrator";
+        public const string SuperUser = "SuperUser";
+        public const string User = "User";
+        public const string Guest = "Guest";
+    }
+
+    public struct DomainType
+    {
+        public const string Security = "Security";
+        public const string Order = "Order";
+    }
 }

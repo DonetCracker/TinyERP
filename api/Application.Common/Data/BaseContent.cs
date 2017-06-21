@@ -8,6 +8,7 @@
         public ItemStatus Status { get; set; }
         public BaseContent() : base()
         {
+            this.Status = ItemStatus.Active;
         }
 
         public BaseContent(BaseContent item) : base(item)
@@ -17,7 +18,7 @@
             this.Description = item.Description;
         }
 
-        public BaseContent(string name, string key, string description)
+        public BaseContent(string name, string key, string description) : this()
         {
             this.Name = name;
             this.Key = key;

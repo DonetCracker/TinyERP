@@ -33,7 +33,7 @@
                 command.Result = ObjectHelper.Convert<AuthenticationResult>(user);
                 command.Result.IsValid = true;
 
-                this.Publish(new OnAuthenticationSuccess(user.FistName, user.LastName, user.Email, user.LoginToken, user.TokenExpiredAfter, DateTime.UtcNow));
+                this.Publish(new OnAuthenticationSuccess(user.FirstName, user.LastName, user.Email, user.LoginToken, user.TokenExpiredAfter, DateTime.UtcNow));
             }
         }
 

@@ -30,7 +30,7 @@
                     new Claim(ClaimTypes.Name, authorise.FullName),
                     new Claim(ClaimTypes.Email, authorise.Email),
                     new Claim(ClaimTypes.Expired, authorise.TokenExpiredAfter.ToString()),
-                    new Claim(ClaimTypes.Role, "admin")
+                    new Claim(ClaimTypes.Role, authorise.Roles.ToString())
                 };
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claimCollection, context.Options.AuthenticationType);
             context.Validated(claimsIdentity);

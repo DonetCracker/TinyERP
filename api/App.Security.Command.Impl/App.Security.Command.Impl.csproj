@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityCommandHandler.cs" />
     <Compile Include="UserNameAndPwdAuthCommandHandler.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,10 +8,10 @@
         public static IDbContext Create(DbContextOption option)
         {
 
-            if (option.DbContextType != null)
-            {
-                return (IDbContext)ObjectHelper.CreateInstance(option.DbContextType, new object[] { option.IOMode, option.ConnectionStringName });
-            }
+            //if (option.DbContextType != null)
+            //{
+            //    return (IDbContext)ObjectHelper.CreateInstance(option.DbContextType, new object[] { option.IOMode, option.ConnectionStringName });
+            //}
             IDbContextResolver resolver = IoC.Container.Resolve<IDbContextResolver>();
             return resolver.Resolve(option);
         }
