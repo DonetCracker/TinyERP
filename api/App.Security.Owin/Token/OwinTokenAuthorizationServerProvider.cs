@@ -3,12 +3,11 @@
     using System.Threading.Tasks;
     using Microsoft.Owin.Security.OAuth;
     using App.Security.Command;
-    using System.Collections.Generic;
     using System.Security.Claims;
     using App.Common.Command;
     using App.Security.Aggregate;
-    using Common.Configurations;
     using App.Security.Command.UserNameAndPwd;
+    using App.Common;
 
     internal class OwinTokenAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
@@ -24,15 +23,7 @@
 
             AuthenticationResult authorise = this.Authorise(userName, password);
             if (authorise == null || !authorise.IsValid) { return; }
-
-            IList<Claim> claimCollection = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, authorise.FullName),
-                    new Claim(ClaimTypes.Email, authorise.Email),
-                    new Claim(ClaimTypes.Expired, authorise.TokenExpiredAfter.ToString()),
-                    new Claim(ClaimTypes.Role, authorise.Roles.ToString())
-                };
-            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claimCollection, context.Options.AuthenticationType);
+            ClaimsIdentity claimsIdentity = App.Common.Helpers.SecurityHelper.CreateClaimIdentity(authorise.FullName, authorise.Email, authorise.TokenExpiredAfter, authorise.Roles.ToList(), context.Options.AuthenticationType);
             context.Validated(claimsIdentity);
 
         }

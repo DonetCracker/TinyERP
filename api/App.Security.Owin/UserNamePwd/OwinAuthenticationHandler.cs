@@ -4,7 +4,6 @@
     using System.Threading.Tasks;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Infrastructure;
-    using System.Collections.Generic;
     using System.Security.Claims;
     using Microsoft.Owin;
     using Common;
@@ -28,13 +27,7 @@
             authProperties.ExpiresUtc = authorise.TokenExpiredAfter;
             authProperties.AllowRefresh = true;
             authProperties.IsPersistent = true;
-            IList<Claim> claimCollection = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, authorise.FullName),
-                    new Claim(ClaimTypes.Email, authorise.Email),
-                    new Claim(ClaimTypes.Expired, authorise.TokenExpiredAfter.ToString()),
-                };
-            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claimCollection, "Custom");
+           ClaimsIdentity claimsIdentity = App.Common.Helpers.SecurityHelper.CreateClaimIdentity(authorise.FullName, authorise.Email, authorise.TokenExpiredAfter, authorise.Roles.ToList());
             AuthenticationTicket ticket = new AuthenticationTicket(claimsIdentity, authProperties);
             return ticket;
         }

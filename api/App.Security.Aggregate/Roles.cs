@@ -1,16 +1,17 @@
 ﻿namespace App.Security.Aggregate
 {
+    using System;
     using System.Collections.Generic;
     public class Roles : List<Role>
     {
-        public override string ToString()
+        public IList<string> ToList()
         {
-            string roleKeys = string.Empty;
+            IList<string> keys = new List<string>();
             foreach (Role role in this)
             {
-                roleKeys = string.IsNullOrWhiteSpace(roleKeys) ? role.Key : string.Format("{0},{1}", roleKeys, role.Key);
+                keys.Add(role.Key);
             }
-            return roleKeys;
+            return keys;
         }
     }
 }
