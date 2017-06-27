@@ -29,7 +29,7 @@
             command.FirstName = "Tu";
             command.LastName = "Tran";
             command.Email = "contact@tranthanhtu.vn";
-            command.UserName = "tu";
+            command.UserName = "techcoaching";
             command.Pwd = "123";
             command.Roles.Add(new Role("Security Administrator", SecurityRoleType.Administrator, "just for testing", DomainType.Security));
             command.Roles.Add(new Role("Security User", SecurityRoleType.User, "just for testing", DomainType.Security));
