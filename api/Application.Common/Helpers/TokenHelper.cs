@@ -1,12 +1,12 @@
-﻿using System;
-
-namespace App.Common.Helpers
+﻿namespace App.Common.Helpers
 {
+    using System;
+
     public class TokenHelper
     {
-        public static AuthenticationToken CreateNewAuthenticationToken()
+        public static AuthenticationToken CreateNewAuthenticationToken(string token = "")
         {
-            return new AuthenticationToken(Guid.NewGuid(), DateTimeHelper.GetAuthenticationTokenExpiredUtcDateTime());
+            return new AuthenticationToken(String.IsNullOrWhiteSpace(token) ? Guid.NewGuid() : new Guid(token), DateTimeHelper.GetAuthenticationTokenExpiredUtcDateTime());
         }
     }
 }

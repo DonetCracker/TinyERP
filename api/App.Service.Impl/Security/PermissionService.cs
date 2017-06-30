@@ -11,56 +11,63 @@
     using Context;
     using App.Common.Validation;
     using Service.Security.Permission;
+    using App.Common.Helpers;
 
-    public class PermissionService : IPermissionService
+    internal class PermissionService : IPermissionService
     {
-        public void CreateIfNotExist(IList<Permission> pers)
+        public void CreateIfNotExist(IList<CreatePermissionRequest> pers)
         {
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IPermissionRepository perRepository = IoC.Container.Resolve<IPermissionRepository>(uow);
-                foreach (Permission per in pers)
+                foreach (CreatePermissionRequest perRequest in pers)
                 {
-                    if (perRepository.GetByKey(per.Key) != null) { continue; }
-                    perRepository.Add(per);
+                    try
+                    {
+                        this.ValidateCreatePermissionRequest(perRequest);
+                        Permission permission = new Permission(perRequest.Name, perRequest.Key, perRequest.Description);
+                        perRepository.Add(permission);
+                    }
+                    catch (ValidationException ex)
+                    {
+                        if (ex.HasExceptionKey("security.addPermission.validation.nameAlreadyExist")) { continue; }
+                        if (ex.HasExceptionKey("security.addPermission.validation.keyAlreadyExist")) { continue; }
+                    }
                 }
+
                 uow.Commit();
             }
         }
 
-        public BaseContent CreatePermission(BaseContent permission)
+        public CreatePermissionResponse Create(CreatePermissionRequest permission)
         {
-            CreatePermissionValidation(permission);
-            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(new App.Context.AppDbContext(IOMode.Write)))
+            this.ValidateCreatePermissionRequest(permission);
+            using (App.Common.Data.IUnitOfWork uow = new App.Common.Data.UnitOfWork(RepositoryType.MSSQL))
             {
                 IPermissionRepository perRepository = IoC.Container.Resolve<IPermissionRepository>(uow);
-                Permission per = new Permission(permission);
+                Permission per = new Permission(permission.Name, permission.Key, permission.Description);
                 perRepository.Add(per);
                 uow.Commit();
-                return per;
+                return ObjectHelper.Convert<CreatePermissionResponse>(per);
             }
         }
 
-        private void CreatePermissionValidation(BaseContent permission)
+        private void ValidateCreatePermissionRequest(CreatePermissionRequest permission)
         {
-            if (string.IsNullOrWhiteSpace(permission.Name))
-            {
-                throw new App.Common.Validation.ValidationException("security.addPermission.validation.nameIsRequire");
-            }
+            IValidationException validationException = ValidationHelper.Validate(permission);
+
             IPermissionRepository perRepo = IoC.Container.Resolve<IPermissionRepository>();
             if (perRepo.GetByName(permission.Name) != null)
             {
-                throw new App.Common.Validation.ValidationException("security.addPermission.validation.nameAlreadyExist");
+                validationException.Add(new App.Common.Validation.ValidationError("security.addOrUpdatePermission.validation.nameAlreadyExist"));
             }
 
-            if (string.IsNullOrWhiteSpace(permission.Key))
-            {
-                throw new App.Common.Validation.ValidationException("security.addPermission.validation.keyIsRequire");
-            }
             if (perRepo.GetByKey(permission.Key) != null)
             {
-                throw new App.Common.Validation.ValidationException("security.addPermission.validation.keyAlreadyExist");
+                validationException.Add(new App.Common.Validation.ValidationError("security.addOrUpdatePermission.validation.keyAlreadyExist"));
             }
+
+            validationException.ThrowIfError();
         }
 
         public IList<PermissionAsKeyNamePair> GetPermissions()
@@ -71,21 +78,22 @@
 
         public void Delete(Guid id)
         {
-            ValidateDeleteRequest(id);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write)))
+            this.ValidateDeleteRequest(id);
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
             {
                 IPermissionRepository perRepo = IoC.Container.Resolve<IPermissionRepository>(uow);
-                perRepo.Delete(id.ToString());
+                perRepo.Delete(id);
                 uow.Commit();
             }
         }
 
         private void ValidateDeleteRequest(Guid id)
         {
-            if (id == null)
+            if (id == null || id == Guid.Empty)
             {
                 throw new ValidationException("security.permissons.permissionIdIsInvalid");
             }
+
             IPermissionRepository perRepo = IoC.Container.Resolve<IPermissionRepository>();
             if (perRepo.GetById(id.ToString()) == null)
             {
@@ -99,10 +107,11 @@
             return perRepo.GetById<GetPermissionResponse>(id.ToString());
         }
 
-        public void UpdatePermission(UpdatePermissionRequest request)
+        public void Update(UpdatePermissionRequest request)
         {
-            ValidateUpdateRequest(request);
-            using (IUnitOfWork uow = new UnitOfWork(new AppDbContext(IOMode.Write))) {
+            this.ValidateUpdateRequest(request);
+            using (IUnitOfWork uow = new UnitOfWork(RepositoryType.MSSQL))
+            {
                 IPermissionRepository perRepo = IoC.Container.Resolve<IPermissionRepository>(uow);
                 Permission existedPermission = perRepo.GetById(request.Id.ToString());
                 existedPermission.Name = request.Name;
@@ -115,26 +124,26 @@
 
         private void ValidateUpdateRequest(UpdatePermissionRequest request)
         {
-            if (string.IsNullOrWhiteSpace(request.Name))
-            {
-                throw new App.Common.Validation.ValidationException("security.addPermission.validation.nameIsRequire");
-            }
             IPermissionRepository perRepo = IoC.Container.Resolve<IPermissionRepository>();
-            Permission per = perRepo.GetByName(request.Name);
-            if (per!= null && per.Id !=request.Id)
-            {
-                throw new App.Common.Validation.ValidationException("security.addPermission.validation.nameAlreadyExist");
+            IValidationException validationException = ValidationHelper.Validate(request);
+            Permission per = perRepo.GetById(request.Id.ToString());
+            if (per == null) {
+                validationException.Add(new App.Common.Validation.ValidationError("security.addPermission.validation.invalidId"));
             }
 
-            if (string.IsNullOrWhiteSpace(request.Key))
-            {
-                throw new App.Common.Validation.ValidationException("security.addPermission.validation.keyIsRequire");
-            }
-            per = perRepo.GetByName(request.Key);
+            per = perRepo.GetByName(request.Name);
             if (per != null && per.Id != request.Id)
             {
-                throw new App.Common.Validation.ValidationException("security.addPermission.validation.keyAlreadyExist");
+                validationException.Add(new App.Common.Validation.ValidationError("security.addPermission.validation.nameAlreadyExist"));
             }
+
+            per = perRepo.GetByKey(request.Key);
+            if (per != null && per.Id != request.Id)
+            {
+                validationException.Add(new App.Common.Validation.ValidationError("security.addPermission.validation.keyAlreadyExist"));
+            }
+
+            validationException.ThrowIfError();
         }
     }
 }

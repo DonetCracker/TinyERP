@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 var config = require('../gulp.config')();
 var ts = require('gulp-typescript');
-var tslint = require('gulp-tslint');
+//var tslint = require('gulp-tslint');
 var sourcemaps = require('gulp-sourcemaps');
 var path = require('path');
 var preprocess = require('gulp-preprocess');
-var wait = require('gulp-wait');
+//var wait = require('gulp-wait');
 
 /* Initialize TS Project */
 var tsProject = ts.createProject(config.root + 'tsconfig.json');
@@ -24,14 +24,14 @@ function compileTs(files, watchMode) {
     var res = gulp.src(allFiles, {
             base: '.'
         })
-        .pipe(tslint())
+        /*.pipe(tslint())
         .pipe(tslint.report('prose', {
             summarizeFailureOutput: true,
             emitError: !watchMode
-        }))
+        }))*/
         .pipe(preprocess())
         .pipe(sourcemaps.init())
-        .pipe(ts(tsProject))
+        .pipe(tsProject())
         .on('error', function () {
             process.exit(1);
         });

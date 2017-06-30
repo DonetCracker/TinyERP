@@ -1,0 +1,1 @@
+{"version":3,"file":"mainMenu.js","sourceRoot":"","sources":["mainMenu.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;YAMa,QAAQ,GAArB;gBAJA;oBAKa,QAAG,GAAW,eAAe,CAAC;gBAE3C,CAAC;aAAA,CAAA;YAFY;gBAAR,YAAK,EAAE;;iDAA+B;YAC9B;gBAAR,YAAK,EAAE;0CAAQ,KAAK;mDAAc;YAF1B,QAAQ;gBAJpB,gBAAS,CAAC;oBACP,QAAQ,EAAE,WAAW;oBACrB,WAAW,EAAE,6CAA6C;iBAC7D,CAAC;eACW,QAAQ,CAGpB;;QAAA,CAAC"}

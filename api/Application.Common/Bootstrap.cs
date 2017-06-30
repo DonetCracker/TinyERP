@@ -1,15 +1,22 @@
-﻿using App.Common.DI;
-using App.Common.Logging;
-using App.Common.Tasks;
-
-namespace App.Common
+﻿namespace App.Common
 {
-    public class Bootstrap :BaseTask<IBaseContainer>, IBootstrapper
+    using App.Common.DI;
+    using App.Common.Tasks;
+    using Event;
+
+    public class Bootstrap : BaseTask<IBaseContainer>, IBootstrapper
     {
-        public Bootstrap() : base(ApplicationType.All) { }
+        public Bootstrap() : base(ApplicationType.All)
+        {
+        }
+
         public override void Execute(IBaseContainer context)
         {
-            context.RegisterSingleton<ILogger, DefaultLogger>();
+            context.RegisterSingleton<App.Common.Logging.ILogger, App.Common.Logging.DefaultLogger>();
+            context.RegisterSingleton<App.Common.Mail.IMailService, App.Common.Mail.MailService>();
+            context.RegisterSingleton<App.Common.Event.IEventManager, App.Common.Event.BaseEventManager>();
+
+            context.RegisterSingleton<IEventManagerStrategy, EventManagerStrategy>();
         }
     }
 }

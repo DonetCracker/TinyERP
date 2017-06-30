@@ -1,59 +1,58 @@
-// This config is used during development and build phase only
-// It will not be available on production
-
-var SystemConfig = (function() {
-    // List your node_modules packages here
-    var packages = [
-        'angular2',
-        'rxjs',
-        'ng2-translate',
-        'hammerjs', 
-        'ng2-bs3-modal',
-        'es6-shim',
-        'systemjs'
-    ];
-
-    var config = {
-        defaultJSExtensions: true,
-        baseUrl: '.',
-        paths: {
-            'n:*': 'node_modules/*',
-            hammerjs: 'node_modules/hammerjs/hammer.js'
+System.config({
+    defaultJSExtensions: true,
+    baseUrl: '.',
+    paths: {
+        npm: "node_modules/",
+        "@app/common": ["src/modules/common/index.js"],
+        "@app/security": ["src/modules/security/index.js"],
+        "@app/setting": ["src/modules/setting/index.js"],
+        "@app/themes/default": ["src/themes/default/index.js"],
+        "@app/customerManagement": ["src/modules/customerManagement/index.js"]
+    },
+    map: {
+        "@app/common": "src/modules/common/index.js",
+        "@angular/core": 'npm@angular/core/bundles/core.umd.js',
+        '@angular/common': 'npm@angular/common/bundles/common.umd.js',
+        '@angular/compiler': 'npm@angular/compiler/bundles/compiler.umd.js',
+        '@angular/platform-browser': 'npm@angular/platform-browser/bundles/platform-browser.umd.js',
+        '@angular/platform-browser-dynamic': 'npm@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+        '@angular/http': 'npm@angular/http/bundles/http.umd.js',
+        '@angular/router': 'npm@angular/router/bundles/router.umd.js',
+        '@angular/forms': 'npm@angular/forms/bundles/forms.umd.js',
+        'rxjs': 'npmrxjs',
+        'ts': 'npm@plugin-typescript@4.0.10/lib/plugin.js',
+        'typescript': 'npm@typescript@2.0.3/lib/typescript.js',
+        'ej-angular2': 'npmej-angular2',
+        'syncfusion-javascript': 'npmsyncfusion-javascript',
+        'jsrender': 'npmjsrender',
+        'jquery': 'npmjquery',
+        "jquery-validation":"npmjquery-validation"
+    },
+    packages: {
+        "jquery-validation":{
+            main:"dist/jquery.validate.js"
         },
-        map: {
-            'rxjs': 'node_modules/rxjs',
-            'ng2-translate': 'node_modules/ng2-translate',
-            'angular2-jwt': 'node_modules/angular2-jwt/angular2-jwt',
-            'angular2-modal': 'node_modules/angular2-modal/dist/commonjs/angular2-modal',
-            'ng2-bs3-modal': 'node_modules/ng2-bs3-modal',
-            'es6-shim':'node_modules/es6-shim',
-            'systemjs':'node_modules/systemjs'
+        "jquery":{
+            main:"dist/jquery.js"
         },
-        packages: {
-            'app': {
-                format: 'register',
-                defaultExtension: 'js'
-            },
-            'test': {
-                format: 'register',
-                defaultExtension: 'js'
-            },
-            'angular2-jwt': {
-                'defaultExtension': 'js'
-            },
-            'angular2-modal': {
-                'defaultExtension': 'js'
-            }
+        "jsrender":{
+            main:"jsrender.js"
+        },
+        "@app/common": {
+            defaultExtension: "js"
+        },
+        api: {
+            defaultExtension: "json"
+        },
+        src: {
+            main: "./main.ts",
+            defaultExtension: "js"
+        },
+        rxjs: {
+            defaultExtension: "js"
+        },
+        'ej-angular2': {
+            main: './src/index.js'
         }
-    };
-
-    for (var i = packages.length - 1; i >= 0; i--) {
-        var package = packages[i];
-        config.map[package] = 'n:' + package;
-        config.packages[package] = {
-            defaultExtension: 'js'
-        };
     }
-
-    System.config(config);
-})();
+});

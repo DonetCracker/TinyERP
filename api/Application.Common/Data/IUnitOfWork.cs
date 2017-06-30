@@ -1,11 +1,11 @@
-﻿
-using System;
-
-namespace App.Common.Data
+﻿namespace App.Common.Data
 {
+    using System;
+
     public interface IUnitOfWork : IDisposable
     {
-        IDbContext Context { get;}
+        RepositoryType RepositoryType { get; }
+        IDbContext Context { get; }
         void Commit();
     }
 }

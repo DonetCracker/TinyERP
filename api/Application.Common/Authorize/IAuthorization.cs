@@ -1,5 +1,4 @@
-﻿using System.Web.Http.Controllers;
-namespace App.Common.Authorize
+﻿namespace App.Common.Authorize
 {
     public interface IAuthorization
     {

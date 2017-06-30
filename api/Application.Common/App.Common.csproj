@@ -40,8 +40,9 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Elasticsearch.Net">
-      <HintPath>..\packages\Elasticsearch.Net.2.0.4\lib\net45\Elasticsearch.Net.dll</HintPath>
+    <Reference Include="Elasticsearch.Net, Version=2.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elasticsearch.Net.2.4.1\lib\net45\Elasticsearch.Net.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
@@ -64,6 +65,7 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MongoDB.Bson">
       <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -73,12 +75,13 @@
     <Reference Include="MongoDB.Kennedy">
       <HintPath>..\packages\MongoDB.Kennedy.Concurrency.1.0.12\lib\MongoDB.Kennedy.dll</HintPath>
     </Reference>
-    <Reference Include="Nest">
-      <HintPath>..\packages\NEST.2.0.4\lib\net45\Nest.dll</HintPath>
+    <Reference Include="Nest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\NEST.2.3.3\lib\net45\Nest.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Selenium.WebDriverBackedSelenium">
       <HintPath>..\packages\Selenium\2.53.1\Selenium.WebDriverBackedSelenium.dll</HintPath>
@@ -97,6 +100,9 @@
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -122,26 +128,70 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationFactory.cs" />
+    <Compile Include="Aggregate\AggregateFactory.cs" />
+    <Compile Include="Aggregate\BaseAggregateRoot.cs" />
+    <Compile Include="Aggregate\IBaseAggregateRoot.cs" />
+    <Compile Include="Application\ApplicationFactory.cs" />
+    <Compile Include="Application\ExternalWebApiApplication.cs" />
     <Compile Include="Authorize\IAuthorization.cs" />
     <Compile Include="Authorize\IUserLoginAuthorization.cs" />
+    <Compile Include="Authorize\IUserNameAndPwdAuthService.cs" />
     <Compile Include="Authorize\UnAuthorizedException.cs" />
+    <Compile Include="Command\BaseCommandHandler.cs" />
+    <Compile Include="Command\BaseCommandWithResult.cs" />
+    <Compile Include="Configurations\Aggregate\AggregateOption.cs" />
+    <Compile Include="Configurations\Aggregate\AggregatesElement.cs" />
+    <Compile Include="Configurations\RepositoryElement.cs" />
+    <Compile Include="Data\Context\BaseDbContextResolver.cs" />
+    <Compile Include="Data\DbContextFactory.cs" />
+    <Compile Include="Data\DbContextOption.cs" />
+    <Compile Include="Data\IDbContextResolver.cs" />
+    <Compile Include="Data\IBaseQueryRepository.cs" />
+    <Compile Include="Extensions\ObjectExtension.cs" />
+    <Compile Include="Helpers\SecurityHelper.cs" />
+    <Compile Include="IClonable.cs" />
+    <Compile Include="Mapping\ICustomMap.cs" />
+    <Compile Include="Mapping\IMappingRegistration.cs" />
+    <Compile Include="Mapping\MappingRegistration.cs" />
+    <Compile Include="MVC\BaseApiController.cs" />
+    <Compile Include="Command\BaseCommand.cs" />
+    <Compile Include="Command\CommandHandlerController.cs" />
+    <Compile Include="Command\CommandHandlerException.cs" />
+    <Compile Include="Command\CommandHandlerStrategyFactory.cs" />
+    <Compile Include="Command\Exceptions\CommandHandlerExceptionKeys.cs" />
+    <Compile Include="Command\Exceptions\CommandHandlerNotFound.cs" />
+    <Compile Include="Command\Handlers\InAppCommandHandlerStategy.cs" />
+    <Compile Include="Command\IBaseCommand.cs" />
+    <Compile Include="Command\IBaseCommandHandler.cs" />
+    <Compile Include="Command\ICommandHandlerStrategy.cs" />
     <Compile Include="Configurations\AuthenticationElement.cs" />
+    <Compile Include="Configurations\CommandHandler\CommandHandlerOption.cs" />
+    <Compile Include="Configurations\CommandHandler\CommandHandlerSettingsElement.cs" />
     <Compile Include="Configurations\DatabasesElement.cs" />
+    <Compile Include="Configurations\EventHandler\EventHandlerOption.cs" />
+    <Compile Include="Configurations\EventHandler\EventHandlersElement.cs" />
     <Compile Include="Configurations\FolderElement.cs" />
+    <Compile Include="Configurations\IntegrationTestElement.cs" />
     <Compile Include="Configurations\MailElement.cs" />
     <Compile Include="Configurations\UITestElement.cs" />
     <Compile Include="Configurations\LocalizationElement.cs" />
     <Compile Include="Configurations\PagingElement.cs" />
-    <Compile Include="ConsoleApplication.cs" />
+    <Compile Include="Connector\ConnectorFactory.cs" />
+    <Compile Include="Connector\IConnector.cs" />
+    <Compile Include="Connector\JsonContent.cs" />
+    <Compile Include="Connector\RESTConnector.cs" />
+    <Compile Include="Application\ConsoleApplication.cs" />
+    <Compile Include="Data\BaseCommandRepository.cs" />
     <Compile Include="Data\BaseContent.cs" />
     <Compile Include="Data\BaseContentRepository.cs" />
+    <Compile Include="Data\BaseQueryRepository.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\ConnectionString.cs" />
     <Compile Include="Data\DbContext.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\DbSet.cs" />
+    <Compile Include="Data\IBaseCommandRepository.cs" />
     <Compile Include="Data\IBaseContent.cs" />
     <Compile Include="Data\IBaseContentRepository.cs" />
     <Compile Include="Data\IBaseEntity.cs" />
@@ -151,6 +201,11 @@
     <Compile Include="Data\IDbSet.cs" />
     <Compile Include="Data\IUnitOfWork.cs" />
     <Compile Include="Data\KeyNamePair.cs" />
+    <Compile Include="Data\MongoDB\BaseMongoDbEntity.cs" />
+    <Compile Include="Data\MongoDB\IMongoDbContext.cs" />
+    <Compile Include="Data\MongoDB\MongoConnectionString.cs" />
+    <Compile Include="Data\MongoDB\MongoDbContext.cs" />
+    <Compile Include="Data\MongoDB\MongoDbSet.cs" />
     <Compile Include="Data\MSSQL\MSSQLDbSet.cs" />
     <Compile Include="Data\MSSQL\IMSSQLDbContext.cs" />
     <Compile Include="Data\MSSQL\MSSQLConnectionString.cs" />
@@ -160,22 +215,42 @@
     <Compile Include="Dimension.cs" />
     <Compile Include="DI\Castle\HttpControllerActivator.cs" />
     <Compile Include="DI\Castle\ConfigServicesContainerTask.cs" />
+    <Compile Include="Event\BaseEvent.cs" />
+    <Compile Include="Event\BaseEventHandler.cs" />
+    <Compile Include="Event\BaseEventManager.cs" />
+    <Compile Include="Event\EventManagerStrategy.cs" />
+    <Compile Include="Event\Exception\EventHandlerConst.cs" />
+    <Compile Include="Event\Exception\EventHandlerNotFound.cs" />
+    <Compile Include="Event\IEvent.cs" />
+    <Compile Include="Event\IEventHandler.cs" />
+    <Compile Include="Event\IEventHandlerStrategy.cs" />
+    <Compile Include="Event\IEventManager.cs" />
+    <Compile Include="Event\IEventManagerStrategy.cs" />
+    <Compile Include="Event\Strategy\InAppEventHandlerStategy.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\GuidHelper.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ObjectHelper.cs" />
     <Compile Include="Helpers\ParameterHelper.cs" />
     <Compile Include="Helpers\PhotoHelper.cs" />
-    <Compile Include="Helpers\RegHelper.cs" />
     <Compile Include="BaseExecutable.cs" />
+    <Compile Include="Helpers\RegexHelper.cs" />
     <Compile Include="Helpers\TestCaseHelper.cs" />
     <Compile Include="Helpers\UtilHelper.cs" />
+    <Compile Include="Helpers\ValidationHelper.cs" />
     <Compile Include="Mail\EmailContent.cs" />
     <Compile Include="Mail\IEmailContent.cs" />
     <Compile Include="Mail\IMailService.cs" />
     <Compile Include="Mail\MailService.cs" />
+    <Compile Include="MVC\Attributes\ResponseWrapper.cs" />
     <Compile Include="MVC\Attributes\ValidateMimeMultipartContentFilter.cs" />
+    <Compile Include="MVC\Resolver\HttpControllerTypeResolver.cs" />
     <Compile Include="Providers\MultipartFormDataMemoryStreamProvider.cs" />
+    <Compile Include="Tasks\CORS\ConfigCORS.cs" />
+    <Compile Include="Tasks\IExecutable.cs" />
+    <Compile Include="Tasks\IConfigAppTask.cs" />
+    <Compile Include="Tasks\IUnOrderExecutable.cs" />
+    <Compile Include="Tasks\Request\ConfigCustomControllerResolver.cs" />
     <Compile Include="UITest\BrowserRef.cs" />
     <Compile Include="UITest\IBrower.cs" />
     <Compile Include="UITest\Mail\UITestResultNotificationEmail.cs" />
@@ -194,6 +269,15 @@
     <Compile Include="UITest\UI\UIInputAction.cs" />
     <Compile Include="UITest\Writer\BaseTestWriter.cs" />
     <Compile Include="UITest\Writer\ExcelTestWriter.cs" />
+    <Compile Include="UnitTest\BaseIntegrationTest.cs" />
+    <Compile Include="UnitTest\BaseUnitTest.cs" />
+    <Compile Include="Validation\Attribute\BaseValidator.cs" />
+    <Compile Include="Validation\Attribute\MatchAttribute.cs" />
+    <Compile Include="Validation\Attribute\RequiredAttribute.cs" />
+    <Compile Include="Validation\Attribute\UniqueAttribute.cs" />
+    <Compile Include="Validation\Attribute\ValidationRequest.cs" />
+    <Compile Include="Validation\Attribute\ValueInCollectionAttribute.cs" />
+    <Compile Include="Validation\Attribute\ValueInRangeAttribute.cs" />
     <Compile Include="Validation\ElementNotFound.cs" />
     <Compile Include="Extensions\DecimalExtension.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
@@ -210,10 +294,10 @@
     <Compile Include="Helpers\RoleHelper.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
-    <Compile Include="IApplication.cs" />
+    <Compile Include="Application\IApplication.cs" />
     <Compile Include="IExecutable.cs" />
     <Compile Include="IResourceItem.cs" />
-    <Compile Include="MVCApplication.cs" />
+    <Compile Include="Application\MVCApplication.cs" />
     <Compile Include="MVC\Attributes\AuthenticationAttribute.cs" />
     <Compile Include="MVC\BaseController.cs" />
     <Compile Include="Bootstrap.cs" />
@@ -256,7 +340,7 @@
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\LogType.cs" />
     <Compile Include="Mapping\IMappedFrom.cs" />
-    <Compile Include="BaseApplication.cs" />
+    <Compile Include="Application\BaseApplication.cs" />
     <Compile Include="Tasks\Error\UnHandledError.cs" />
     <Compile Include="Tasks\IApplicationEndedTask.cs" />
     <Compile Include="Tasks\IApplicationRequestEndedTask.cs" />
@@ -303,7 +387,14 @@
     <Compile Include="Validation\ValidationError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\ValidationException.cs" />
-    <Compile Include="WebApiApplication.cs" />
+    <Compile Include="Application\UnitTestApiApplication.cs" />
+    <Compile Include="Validation\ValidatorOption.cs" />
+    <Compile Include="Validation\Validator\BaseValidator.cs" />
+    <Compile Include="Validation\Validator\GuidValidator.cs" />
+    <Compile Include="Validation\Validator\IValidator.cs" />
+    <Compile Include="Validation\Validator\StringValidator.cs" />
+    <Compile Include="Validation\Validator\ValidatorResolver.cs" />
+    <Compile Include="Application\WebApiApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configurations\configuration.config">
@@ -318,6 +409,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="App.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -331,7 +423,11 @@
 xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.UI.Test\Config\"
 
 xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)Application.Api\Config\"
-xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)App.UI.Test\Config\"</PostBuildEvent>
+xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.release.config" "$(SolutionDir)App.UI.Test\Config\"
+
+
+xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.Test\Config\"
+xcopy /Y /S /r "$(ProjectDir)Configurations\configuration.debug.config" "$(SolutionDir)App.IntegrationTest\config\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

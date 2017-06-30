@@ -1,29 +1,30 @@
-﻿using App.Common.Data.MSSQL;
-using App.Common.Mapping;
-using AutoMapper.QueryableExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace App.Common.Data
+﻿namespace App.Common.Data
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class, IBaseEntity<System.Guid>
+    using App.Common.Data.MSSQL;
+    using App.Common.Mapping;
+    using AutoMapper.QueryableExtensions;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class BaseRepository<TEntity, TId> : IBaseRepository<TEntity, TId> where TEntity : class, IBaseEntity<TId>
     {
-        public IDbSet<TEntity> DbSet { get; protected set; }
-        public BaseRepository(IMSSQLDbContext context)
+        public IDbSet<TEntity, TId> DbSet { get; protected set; }
+        public BaseRepository(IDbContext context)
         {
-            //throw new Exception("Function was not implemented");
-            this.DbSet = context.GetDbSet<TEntity>();
+            this.DbSet = context.GetDbSet<TEntity, TId>();
         }
+        public BaseRepository(DbContextOption option) : this(DbContextFactory.Create(option)) { }
 
         public virtual TEntity GetById(string id, string includes = "")
         {
             return this.DbSet.Get(id, includes);
         }
+
         public virtual TEntity GetById(string id)
         {
-            return this.GetById(id, "");
+            return this.GetById(id, string.Empty);
         }
+
         public virtual TResult GetById<TResult>(string id) where TResult : IMappedFrom<TEntity>
         {
             TEntity entity = this.GetById(id);
@@ -40,7 +41,7 @@ namespace App.Common.Data
             this.DbSet.Add(item);
         }
 
-        public virtual void Delete(string id)
+        public virtual void Delete(TId id)
         {
             this.DbSet.Delete(id);
         }
@@ -59,7 +60,5 @@ namespace App.Common.Data
         {
             throw new System.NotImplementedException();
         }
-
-
     }
 }

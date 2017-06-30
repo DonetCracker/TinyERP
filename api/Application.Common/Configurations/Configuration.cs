@@ -1,6 +1,9 @@
-﻿using System.Configuration;
-namespace App.Common.Configurations
+﻿namespace App.Common.Configurations
 {
+    using CommandHandler;
+    using EventHandler;
+    using System.Configuration;
+
     public class Configuration : System.Configuration.ConfigurationSection
     {
         private static Configuration current;
@@ -12,9 +15,11 @@ namespace App.Common.Configurations
                 {
                     current = (Configuration)System.Configuration.ConfigurationManager.GetSection("appconfiguration");
                 }
+
                 return current;
             }
         }
+
         [ConfigurationProperty("authentication")]
         public AuthenticationElement Authentication
         {
@@ -33,7 +38,16 @@ namespace App.Common.Configurations
             }
         }
 
-        [ConfigurationProperty("databases", IsDefaultCollection=false)]
+        [ConfigurationProperty("repository")]
+        public RepositoryElement Repository
+        {
+            get
+            {
+                return (RepositoryElement)this["repository"];
+            }
+        }
+
+        [ConfigurationProperty("databases", IsDefaultCollection = false)]
         [ConfigurationCollection(typeof(DatabasesElement),
             AddItemName = "add",
             ClearItemsName = "clear",
@@ -72,12 +86,62 @@ namespace App.Common.Configurations
                 return (MailElement)this["mail"];
             }
         }
+
         [ConfigurationProperty("folder")]
         public FolderElement Folder
         {
             get
             {
                 return (FolderElement)this["folder"];
+            }
+        }
+
+        [ConfigurationProperty("integration-test")]
+        public IntegrationTestElement IntegrationTest
+        {
+            get
+            {
+                return (IntegrationTestElement)this["integration-test"];
+            }
+        }
+
+
+        [ConfigurationProperty("commandHandlerSettings", IsDefaultCollection = false)]
+        [ConfigurationCollection(typeof(CommandHandlerSettingsElement),
+            AddItemName = "add",
+            ClearItemsName = "clear",
+            RemoveItemName = "remove")]
+        public CommandHandlerSettingsElement CommandHandlerSettings
+        {
+            get
+            {
+                return (CommandHandlerSettingsElement)this["commandHandlerSettings"];
+            }
+        }
+
+        [ConfigurationProperty("eventHandlers", IsDefaultCollection = false)]
+        [ConfigurationCollection(typeof(EventHandlersElement),
+            AddItemName = "add",
+            ClearItemsName = "clear",
+            RemoveItemName = "remove")]
+        public EventHandlersElement EventHandlers
+        {
+            get
+            {
+                return (EventHandlersElement)this["eventHandlers"];
+            }
+        }
+
+        [ConfigurationProperty("aggregates", IsDefaultCollection = false)]
+        [ConfigurationCollection(typeof(AggregatesElement),
+            AddItemName = "add",
+            ClearItemsName = "clear",
+            RemoveItemName = "remove")]
+        public AggregatesElement Aggregates
+        {
+            get
+            {
+                return (AggregatesElement)this["aggregates"];
             }
         }
     }

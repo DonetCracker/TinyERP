@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>App.Api</RootNamespace>
     <AssemblyName>App.Api</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -56,19 +56,51 @@
     <Reference Include="LinqKit">
       <HintPath>..\packages\LinqKit.1.0\lib\35\LinqKit.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.1.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.9.2.235, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Kennedy, Version=1.1.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Kennedy.Concurrency.1.0.12\lib\MongoDB.Kennedy.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
@@ -81,15 +113,19 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -161,23 +197,11 @@
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security.Facebook">
       <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Google">
       <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
@@ -190,21 +214,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Features\Common\Bootstrap.cs" />
+    <Compile Include="Features\Common\DbContextResolver.cs" />
     <Compile Include="Features\Common\FilesController.cs" />
+    <Compile Include="Features\Inventory\CategoriesController.cs" />
+    <Compile Include="Features\Inventory\UnitOfMeasurementsController.cs" />
+    <Compile Include="Features\Order\OrderHandler.cs" />
     <Compile Include="Features\Security\PermissionsController.cs" />
     <Compile Include="Features\Security\UserGroupsController.cs" />
     <Compile Include="Features\Security\RolesController.cs" />
     <Compile Include="Features\Setting\ContentTypesController.cs" />
     <Compile Include="Features\Share\Authorize\UserLoginAuthorization.cs" />
     <Compile Include="Features\Share\Bootstrap.cs" />
+    <Compile Include="Features\Share\Tasks\Common\JsonSerializerTask.cs" />
+    <Compile Include="Features\Share\Tasks\Common\RegisterWebApiRouteTask.cs" />
+    <Compile Include="Features\Share\Tasks\Data\CreateCategoryTask.cs" />
     <Compile Include="Features\Share\Tasks\Data\CreateContentTypesTask.cs" />
-    <Compile Include="Features\Share\Tasks\Data\CreatePermissionTask.cs" />
+    <Compile Include="Features\Share\Tasks\Secutiry\CreatePermissionTask.cs" />
     <Compile Include="Features\Share\Tasks\Data\CreateTestUsersTask.cs" />
     <Compile Include="Features\Share\Tasks\Data\CreateRoleAndPermissionTask.cs" />
-    <Compile Include="Features\Share\Tasks\JsonSerializerTask.cs" />
-    <Compile Include="Features\Registration\UsersController.cs" />
-    <Compile Include="Features\Share\Tasks\RegisterWebApiRouteTask.cs" />
+    <Compile Include="Features\Security\UsersController.cs" />
+    <Compile Include="Features\Support\RequestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +245,8 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
+    <Content Include="Resources\Templates\Email\support\supportRequestOnStatusChanged.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -226,6 +260,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Features\UserManagement\" />
+    <Folder Include="Views\SecurityTest\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -236,8 +271,25 @@
     <Content Include="config\configuration.debug.config" />
     <Content Include="config\configuration.release.config" />
     <None Include="Project_Readme.html" />
+    <None Include="Properties\PublishProfiles\published.pubxml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.Aggregate\App.Aggregate.csproj">
+      <Project>{3fc40c0d-a53f-4507-94d8-e99aee04ae29}</Project>
+      <Name>App.Aggregate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.ApiContainer\App.ApiContainer.csproj">
+      <Project>{0a4b68f8-ede8-4726-8b7f-32ace5167045}</Project>
+      <Name>App.ApiContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Command.Impl\App.Command.Impl.csproj">
+      <Project>{d225f4f9-c042-4be0-ae3a-277799cfcfa6}</Project>
+      <Name>App.Command.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Command\App.Command.csproj">
+      <Project>{CE75DC9E-FF91-4A55-8174-B07E4A7BDCDE}</Project>
+      <Name>App.Command</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Context\App.Context.csproj">
       <Project>{31f025ba-25f0-45ee-907e-afef5b46e77d}</Project>
       <Name>App.Context</Name>
@@ -246,6 +298,30 @@
       <Project>{75767a70-cd8b-4f27-ae4b-45be7c3209ac}</Project>
       <Name>App.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.EventHandler.Impl\App.EventHandler.Impl.csproj">
+      <Project>{88e69dca-9a93-4245-8176-310c771496ec}</Project>
+      <Name>App.EventHandler.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.EventHandler\App.EventHandler.csproj">
+      <Project>{ba0a5a0e-655d-4dbd-ab5a-f3209fd4a053}</Project>
+      <Name>App.EventHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Event\App.Event.csproj">
+      <Project>{6aa214af-9650-4c32-aca2-a4b0bc625289}</Project>
+      <Name>App.Event</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Query.Entity\App.Query.Entity.csproj">
+      <Project>{e99a0615-4f5c-4150-baf6-e6a0475ef180}</Project>
+      <Name>App.Query.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Query.Impl\App.Query.Impl.csproj">
+      <Project>{a7dcff43-ee80-4451-832e-9afe73aa2139}</Project>
+      <Name>App.Query.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Query\App.Query.csproj">
+      <Project>{3ca1adb0-a50e-41e1-95eb-2ea6463931c6}</Project>
+      <Name>App.Query</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Repository.Impl\App.Repository.Impl.csproj">
       <Project>{c17cf1e1-9b4e-4b53-9493-d2f39ee31a45}</Project>
       <Name>App.Repository.Impl</Name>
@@ -253,6 +329,38 @@
     <ProjectReference Include="..\App.Repository\App.Repository.csproj">
       <Project>{44db0641-ef31-4a87-bde5-fb32a2b6a170}</Project>
       <Name>App.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Aggregate\App.Security.Aggregate.csproj">
+      <Project>{18732316-6f3a-4806-8eb8-6a8914eaf0d6}</Project>
+      <Name>App.Security.Aggregate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Command.Impl\App.Security.Command.Impl.csproj">
+      <Project>{673dd1fe-27ce-48f4-b331-c6d40c32baa0}</Project>
+      <Name>App.Security.Command.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Command\App.Security.Command.csproj">
+      <Project>{4a5e5b9e-e56c-4aba-ae52-25549c038514}</Project>
+      <Name>App.Security.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Context\App.Security.Context.csproj">
+      <Project>{332ae2aa-d906-48ad-a6a9-1e628b352411}</Project>
+      <Name>App.Security.Context</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.EventHandler.Impl\App.Security.EventHandler.Impl.csproj">
+      <Project>{6890b222-5149-4f69-a1f9-d881301ff963}</Project>
+      <Name>App.Security.EventHandler.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Owin\App.Security.Owin.csproj">
+      <Project>{0f882080-8c67-4bf6-ad24-828310c24cab}</Project>
+      <Name>App.Security.Owin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Repository.Impl\App.Security.Repository.Impl.csproj">
+      <Project>{4e8c0c7b-59ee-45b8-93de-81fe6de39529}</Project>
+      <Name>App.Security.Repository.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Security.Repository\App.Security.Repository.csproj">
+      <Project>{9a4a2f00-5492-4412-950b-f8290462a648}</Project>
+      <Name>App.Security.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\App.Service.Impl\App.Service.Impl.csproj">
       <Project>{67b29bb8-6aeb-48ee-9328-a4199943fd6a}</Project>

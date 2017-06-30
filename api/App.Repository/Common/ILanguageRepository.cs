@@ -1,9 +1,9 @@
-﻿using App.Common.Data;
-using App.Entity.Common;
-
-namespace App.Repository.Common
+﻿namespace App.Repository.Common
 {
-    public interface ILanguageRepository : IBaseRepository<Language>
+    using App.Common.Data;
+    using App.Entity.Common;
+
+    public interface ILanguageRepository : IBaseCommandRepository<Language>
     {
         void AddIfNotExist(Language item);
         Language GetByCode(string languageCode);

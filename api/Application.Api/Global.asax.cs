@@ -1,61 +1,20 @@
-﻿namespace App.Api
+﻿[assembly: Microsoft.Owin.OwinStartup(typeof(App.Api.WebApiApplication))]
+namespace App.Api
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    using App.Common;
+    using Owin;
+
+    public class WebApiApplication : App.ApiContainer.ApiApplication
     {
-        protected App.Common.IApplication application;
-        public WebApiApplication()
+        public WebApiApplication() : base() { }
+        protected override ApplicationType GetApplicationType()
         {
-            this.application = App.Common.ApplicationFactory.Create<System.Web.HttpApplication>(App.Common.ApplicationType.WebApi, this);
-        }
-        protected void Application_Start()
-        {
-            this.application.OnApplicationStarted();
-            RegisterRoutes();
+            return ApplicationType.WebApi;
         }
 
-        protected void Application_PreRequestHandlerExecute()
+        public void Configuration(IAppBuilder app)
         {
-           // this.application.OnApplicationRequestExecuting();
+            this.Config<IAppBuilder>(app);
         }
-        protected void RegisterRoutes()
-        {
-            this.application.OnRouteConfigured();
-        }
-/*
-        private void OnError(object sender, System.EventArgs e)
-        {
-            this.application.OnUnHandledError(HttpContext.Current);
-        }
-
-        private void OnEndRequest(object sender, System.EventArgs e)
-        {
-            Omega.Common.Application.OnApplicationRequestEnded(HttpContext.Current);
-        }
-
-        private void OnBeginRequest(object sender, System.EventArgs e)
-        {
-            Omega.Common.Application.OnApplicationRequestStarted(HttpContext.Current);
-        }
-        private static void RegisterGlobalFilters ( GlobalFilterCollection filters )
-        {
-            filters.Add ( new HandleErrorAttribute ( ) );
-        }
-
-        private static void RegisterRoutes ( RouteCollection routes )
-        {
-            Omega.Common.Application.OnRouteConfigured(routes);
-        }
-
-        protected void Application_Start ( )
-        {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            Omega.Common.Application.OnApplicationStarted(HttpContext.Current);
-        }
-
-        protected void Application_PreRequestHandlerExecute()
-        {
-            Omega.Common.Application.OnApplicationRequestExecuting(HttpContext.Current);
-        }
- */
     }
 }
