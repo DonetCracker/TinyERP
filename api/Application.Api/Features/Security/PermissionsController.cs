@@ -8,11 +8,12 @@
     using System;
     using System.Collections.Generic;
     using System.Web.Http;
+    using App.Common;
 
     [RoutePrefix("api/permissions")]
     public class PermissionsController : BaseApiController
     {
-        [Authorize()]
+        [Authorize(Roles = SecurityRoleType.Administrator)]
         [HttpGet]
         [Route("")]
         [ResponseWrapper()]
@@ -22,7 +23,7 @@
             IList<PermissionAsKeyNamePair> pers = permissionService.GetPermissions();
             return pers;
         }
-
+        [Authorize()]
         [HttpGet]
         [Route("{id}")]
         [ResponseWrapper()]

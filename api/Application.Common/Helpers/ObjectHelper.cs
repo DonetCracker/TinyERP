@@ -4,10 +4,9 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using Data;
-    using AutoMapper;
     using Event;
     using Validation.Attribute;
+    using Newtonsoft.Json;
 
     public class ObjectHelper
     {
@@ -22,6 +21,11 @@
             method.Invoke(handler, new object[] { arg });
         }
 
+        public static string ToJson(object obj)
+        {
+            return JsonConvert.SerializeObject(obj); ;
+        }
+
         internal static string GetClassName<TEventType>(TEventType ev) where TEventType : IEvent
         {
             return typeof(TEventType).FullName;
@@ -33,7 +37,7 @@
         }
         internal static object CreateInstance(Type type, object[] args)
         {
-            return Activator.CreateInstance(type,args);
+            return Activator.CreateInstance(type, args);
         }
 
         public static IList<ValidationRequest> GetPropertyAttributes<TValidator>(object obj) where TValidator : BaseAttribute

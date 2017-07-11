@@ -5,5 +5,7 @@
     public interface IUserRepository : IBaseCommandRepository<User>
     {
         User GetActiveUser(string userName, string password);
+        User GetUserByEmail(string email, bool isActiveRequired = false);
+        User GetUserByUserName(string userName, bool isActiveRequired = false);
     }
 }

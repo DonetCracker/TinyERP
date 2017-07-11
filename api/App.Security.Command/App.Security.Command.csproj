@@ -40,12 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateUserCommand.cs" />
+    <Compile Include="ISecurityCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserNameAndPwd\UserNameAndPwdAuthCommandHandler.cs" />
     <Compile Include="UserNameAndPwd\UserNameAndPwdAuthenticationRequest.cs" />
-    <Compile Include="UserNameAndPwd\UserNameAndPwdAuthenticationResult.cs" />
+    <Compile Include="AuthenticationResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.Security.Aggregate\App.Security.Aggregate.csproj">
+      <Project>{18732316-6f3a-4806-8eb8-6a8914eaf0d6}</Project>
+      <Name>App.Security.Aggregate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Application.Common\App.Common.csproj">
       <Project>{FA3EAA76-30EC-41FD-B9B1-C46158B9E821}</Project>
       <Name>App.Common</Name>
